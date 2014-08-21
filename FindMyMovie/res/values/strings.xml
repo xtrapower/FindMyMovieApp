@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">MovieApp</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title">FindMyMovie</string>
+    <string name="below_title">Die Filmsuche App</string>
+    <string name="search_button">Film suchen</string>
+    <string name="watchlist_button">Watchlist</string>
+    <string name="title_search">Titel</string>
+    <string name="genre_search">Genre</string>
+    <string name="rating_search">Bewertung</string>
+    <string name="search">Suche</string>
+    <string name="titleEx">z.B. Titanic</string>
+    <string name="genreEx">z.B. Komödie</string>
+    
+
+</resources>
