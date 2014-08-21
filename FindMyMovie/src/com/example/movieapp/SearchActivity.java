@@ -1,6 +1,9 @@
 package com.example.movieapp;
 
+import java.util.concurrent.ExecutionException;
+
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -16,7 +19,7 @@ public class SearchActivity extends Activity {
 	EditText titleEdit, genreEdit;
 	SeekBar ratingBar;
 	float ratingNum;
-	DataFetcher dF;
+	MovieFetcher dF;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -26,11 +29,12 @@ public class SearchActivity extends Activity {
 
 	private void setupUI() {
 		setContentView(R.layout.search_activity);
-		dF = new DataFetcher();
+		dF = new MovieFetcher();
 		setupTV();
 		setupButton();
 		setupET();
 		setupSeekBar();
+
 	}
 
 	private void setupSeekBar() {
@@ -40,7 +44,7 @@ public class SearchActivity extends Activity {
 
 			public void onProgressChanged(SeekBar seekBar, int progress,
 					boolean fromUser) {
-				ratingNum = (float) (progress *0.1);
+				ratingNum = (float) (progress * 0.1);
 				actRating.setText("" + ratingNum);
 			}
 
@@ -65,11 +69,14 @@ public class SearchActivity extends Activity {
 
 		search = (Button) findViewById(R.id.searchButton);
 		search.setOnClickListener(new View.OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
-				
-				dF.execute(titleEdit.getText().toString());
+
+				Intent intent = new Intent();
+				intent.putExtra("Titel", titleEdit.getText().toString());
+				intent.setClass(SearchActivity.this, ResultActivity.class);
+				startActivity(intent);
 			}
 		});
 	}

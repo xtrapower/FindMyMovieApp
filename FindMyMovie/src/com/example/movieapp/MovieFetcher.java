@@ -10,27 +10,41 @@ import org.apache.http.StatusLine;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import android.os.AsyncTask;
 import android.util.Log;
 
-public class DataFetcher extends
-		AsyncTask<String, Float, String> {
+public class MovieFetcher extends AsyncTask<String, Float, ArrayList<Movie>> {
 
-	String API_KEY ="f4abf758a9edc14dedcad5f120ea63ab";
-	String pois;
-
+	String API_KEY = "f4abf758a9edc14dedcad5f120ea63ab";
+	ArrayList<Movie> movs;
 
 	@Override
-	protected String doInBackground(String... params) {
+	protected ArrayList<Movie> doInBackground(String... params) {
 
-		pois = new String();
-		String JSON = processHttpRequest("http://api.themoviedb.org/3/search/movie?query="+params[0]+"&api_key="+API_KEY);
-		Log.e("test", JSON);
-		return pois;
+		movs = new ArrayList<Movie>();
+		String JSON = processHttpRequest("http://api.themoviedb.org/3/search/movie?query="
+				+ params[0] + "&api_key=" + API_KEY);
+		try {
+			readJSON(JSON);
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return movs;
 	}
 
-
+	private void readJSON(String json_string) throws JSONException {
+		JSONObject json = new JSONObject(json_string);
+		JSONArray movie = json.getJSONArray("results");
+		for (int i = 0; i < 5; i++) {
+			Movie mov = new Movie(movie.getJSONObject(i));
+			movs.add(mov);
+		}
+	}
 
 	private String processHttpRequest(String url) {
 		HttpClient httpclient = new DefaultHttpClient();
@@ -57,7 +71,7 @@ public class DataFetcher extends
 	}
 
 	protected void onPostExecute(ArrayList<String> result) {
-		
+
 	}
 
 }
