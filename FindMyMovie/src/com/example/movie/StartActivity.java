@@ -1,4 +1,4 @@
-package com.example.movieapp;
+package com.example.movie;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -39,6 +39,14 @@ public class StartActivity extends Activity {
 			}
 		});
 		watchlist = (Button) findViewById(R.id.watchlist);
+		watchlist.setOnClickListener(new View.OnClickListener() {
+
+		public void onClick(View v) {
+			intent = new Intent();
+			intent.setClass(StartActivity.this, WatchListActivity.class);
+			startActivity(intent);
+		}
+	});
 	}
 
 	private void setupTV() {

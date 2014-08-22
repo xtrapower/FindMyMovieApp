@@ -1,24 +1,20 @@
-package com.example.movieapp;
+package com.example.movie;
 
-import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
 import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ListView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ListView;
 
 public class ResultActivity extends Activity {
 
 	private MovieListAdapter mov_adapter;
-	private ArrayList<Movie> movs;
 	private ListView list;
-	private Context context;
 	MovieFetcher dF;
+	public MovieDatabase database;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -28,10 +24,15 @@ public class ResultActivity extends Activity {
 	}
 
 	private void init() {
-		context = this;
-		movs = new ArrayList<Movie>();
+		
 		dF = new MovieFetcher();
 		initListView();
+		initLocationDatabase();
+	}
+	
+	private void initLocationDatabase() {
+		database = new MovieDatabase(this);
+		database.open();
 	}
 
 	private void initListView() {
@@ -54,10 +55,9 @@ public class ResultActivity extends Activity {
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1,
 					int position, long arg3) {
-				/*
-				 * Movie mov = (Movie) list .getItemAtPosition(position);
-				 * startReceiverActivity(mov);
-				 */
+				
+					Movie mov = (Movie) list .getItemAtPosition(position);
+					database.insertData(mov);
 
 			}
 		});

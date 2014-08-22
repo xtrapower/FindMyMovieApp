@@ -1,4 +1,4 @@
-package com.example.movieapp;
+package com.example.movie;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -15,7 +15,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.os.AsyncTask;
-import android.util.Log;
 
 public class MovieFetcher extends AsyncTask<String, Float, ArrayList<Movie>> {
 
@@ -40,7 +39,7 @@ public class MovieFetcher extends AsyncTask<String, Float, ArrayList<Movie>> {
 	private void readJSON(String json_string) throws JSONException {
 		JSONObject json = new JSONObject(json_string);
 		JSONArray movie = json.getJSONArray("results");
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < 10; i++) {
 			Movie mov = new Movie(movie.getJSONObject(i));
 			movs.add(mov);
 		}

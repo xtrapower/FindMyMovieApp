@@ -1,4 +1,4 @@
-package com.example.movieapp;
+package com.example.movie;
 
 import org.json.JSONException;
 import org.json.JSONObject;

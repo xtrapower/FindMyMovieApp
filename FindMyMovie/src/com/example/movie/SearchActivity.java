@@ -1,6 +1,4 @@
-package com.example.movieapp;
-
-import java.util.concurrent.ExecutionException;
+package com.example.movie;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -42,16 +40,19 @@ public class SearchActivity extends Activity {
 		ratingBar = (SeekBar) findViewById(R.id.seekBar_rating);
 		ratingBar.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
 
+			@Override
 			public void onProgressChanged(SeekBar seekBar, int progress,
 					boolean fromUser) {
 				ratingNum = (float) (progress * 0.1);
 				actRating.setText("" + ratingNum);
 			}
 
+			@Override
 			public void onStartTrackingTouch(SeekBar seekBar) {
 				// TODO Auto-generated method stub
 			}
 
+			@Override
 			public void onStopTrackingTouch(SeekBar seekBar) {
 				// TODO Auto-generated method stub
 			}
