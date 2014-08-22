@@ -53,7 +53,7 @@ public class MovieListAdapter extends BaseAdapter {
 		TextView title = (TextView) convertView.findViewById(R.id.title);
 		TextView id = (TextView) convertView.findViewById(R.id.id);
 		TextView rating = (TextView) convertView.findViewById(R.id.rating);
-		title.setText(mov.getTitle());
+		title.setText(mov.getTitle().replaceAll("\'", "´"));
 		id.setText("" + mov.getId());
 		rating.setText("" + mov.getRating());
 	}
