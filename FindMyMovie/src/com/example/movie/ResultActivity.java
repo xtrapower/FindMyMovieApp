@@ -3,10 +3,12 @@ package com.example.movie;
 import java.util.concurrent.ExecutionException;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ListView;
 
 public class ResultActivity extends Activity {
@@ -59,6 +61,19 @@ public class ResultActivity extends Activity {
 					Movie mov = (Movie) list .getItemAtPosition(position);
 					database.insertData(mov);
 
+			}
+		});
+		
+		list.setOnItemLongClickListener(new OnItemLongClickListener() {
+
+			@Override
+			public boolean onItemLongClick(AdapterView<?> arg0, View arg1,
+					int arg2, long arg3) {
+				
+					Intent intent = new Intent();
+					intent.setClass(ResultActivity.this, DetailActivity.class);
+					startActivity(intent);
+				return false;
 			}
 		});
 	}

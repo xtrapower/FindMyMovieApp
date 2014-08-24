@@ -1,0 +1,107 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.movieapp.StartActivity" >
+
+    <TextView
+        android:id="@+id/detailTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:text="Titanic"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/detailGenre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/detailTitle"
+        android:layout_below="@+id/detailTitle"
+        android:layout_marginTop="17dp"
+        android:text="@string/detailGenre" />
+
+    <TextView
+        android:id="@+id/detailYear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignRight="@+id/detailGenre"
+        android:layout_below="@+id/detailGenre"
+        android:layout_marginTop="16dp"
+        android:text="@string/detailYear" />
+
+    <TextView
+        android:id="@+id/detailGenreText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/detailGenre"
+        android:layout_alignLeft="@+id/webView1"
+        android:layout_marginLeft="46dp"
+        android:text="Drama" />
+
+    <TextView
+        android:id="@+id/detailYearText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/detailYear"
+        android:layout_alignRight="@+id/detailGenreText"
+        android:text="1997" />
+
+    <TextView
+        android:id="@+id/detailRating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/detailYear"
+        android:layout_marginTop="16dp"
+        android:text="@string/detailRating" />
+
+    <TextView
+        android:id="@+id/detailRatingText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/detailRating"
+        android:layout_alignRight="@+id/detailYearText"
+        android:text="7.7" />
+
+    <TextView
+        android:id="@+id/detailDescriptionText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/detailDescription"
+        android:layout_below="@+id/detailDescription"
+        android:layout_marginTop="16dp"
+        android:text="A seventeen-year-old aristocrat, expecting to be married to a rich claimant by her mother, falls in love with a kind but poor artist aboard the luxurious, ill-fated R.M.S. Titanic." />
+
+    <TextView
+        android:id="@+id/detailDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/detailRating"
+        android:layout_below="@+id/detailRating"
+        android:layout_marginTop="21dp"
+        android:text="@string/detailDescription" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@+id/webView1"
+        android:text="Watch"
+        android:textSize="12sp"
+        android:maxLines="1" />
+
+    <WebView
+        android:id="@+id/webView1"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/detailDescriptionText"
+        android:layout_marginTop="30dp"
+        android:layout_toRightOf="@+id/detailRating" />
+
+</RelativeLayout>

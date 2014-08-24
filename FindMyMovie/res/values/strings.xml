@@ -15,5 +15,12 @@
     <string name="titleEx">z.B. Titanic</string>
     <string name="genreEx">z.B. Komödie</string>
     
+    <string name="detailGenre">Genre:</string>
+    <string name="detailYear">Jahr:</string>
+    <string name="detailRating">Bewertung:</string>
+    <string name="detailDescription">Beschreibung:</string>
+    
+    
+    
 
 </resources>

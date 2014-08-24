@@ -7,20 +7,39 @@ import org.json.JSONObject;
 
 public final class Movie {
 
-	private final int id;
-	private final String title;
-	private final double rating;
+	private int id;
+	private String title, release, description;
+	private double rating;
 
 	public Movie(int id, String title, double rating) {
 		this.id = id;
 		this.title = title;
 		this.rating = rating;
 	}
+	
+	public Movie(int id, String title, double rating, /*String genre,*/ String release, String description) {
+		this.id = id;
+		this.title = title;
+		this.rating = rating;
+		//this.genre = genre;
+		this.release = release;
+		this.description = description;
+	}
 
 	public Movie(JSONObject json) throws JSONException {
 		this.id = json.getInt("id");
 		this.title = json.getString("title");
 		this.rating = json.getDouble("vote_average");
+
+	}
+	
+	public Movie(JSONObject json, int i) throws JSONException {
+		this.id = json.getInt("id");
+		this.title = json.getString("title");
+		this.rating = json.getDouble("vote_average");
+		//this.genre = json.getString("title");
+		this.release = json.getString("release_date").substring(0, 3);
+		this.description = json.getString("overview");
 
 	}
 
@@ -36,6 +55,20 @@ public final class Movie {
 	public double getRating() {
 
 		return rating;
+	}
+	
+	/*public String getGenre() {
+
+		return genre;
+	}*/
+	
+	public String getRelease() {
+
+		return release;
+	}
+	public String getDescription() {
+
+		return description;
 	}
 
 	@Override
