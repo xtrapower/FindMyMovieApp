@@ -33,6 +33,7 @@ public class MovieDatabase {
 	public void insertData(Movie mov) {
 		ContentValues newMovie = new ContentValues();
 		newMovie.put("id", mov.getId());
+		newMovie.put("genre", mov.getFirstGenre());
 		newMovie.put("title", mov.getTitle().replaceAll("\'", "´"));
 		newMovie.put("rating", mov.getRating());
 
@@ -48,8 +49,9 @@ public class MovieDatabase {
 
 	public void removeMovie(Movie mov) {
 
-		String whereClause = "id" + " = '" + mov.getId() + "' AND " + "title"
-				+ " = '" + mov.getTitle() + "' AND " + "rating" + " = '"
+		String whereClause = "id" + " = '" + mov.getId() + "' AND " + "genre"
+				+ " = '" + mov.getFirstGenre() + "' AND " + "title"
+						+ " = '" + mov.getTitle() + "' AND " + "rating" + " = '"
 				+ mov.getRating() + "'";
 
 		db.delete("Movies", whereClause, null);
@@ -58,15 +60,17 @@ public class MovieDatabase {
 
 	public ArrayList<Movie> getAllItems() {
 		ArrayList<Movie> items = new ArrayList<Movie>();
-		Cursor cursor = db.query("Movies", new String[] { "id", "title",
+		Cursor cursor = db.query("Movies", new String[] { "id", "genre", "title",
 				"rating" }, null, null, null, null, null);
 		if (cursor.moveToFirst()) {
 			do {
 				int id = cursor.getInt(0);
-				String title = cursor.getString(1);
-				double rating = cursor.getDouble(2);
+				String genre = cursor.getString(1);
+				String title = cursor.getString(2);
+				double rating = cursor.getDouble(3);
+				float popular = cursor.getFloat(4);
 
-				items.add(new Movie(id, title, rating));
+				items.add(new Movie(id, genre, title, rating, popular));
 			} while (cursor.moveToNext());
 		}
 		return items;
@@ -76,7 +80,8 @@ public class MovieDatabase {
 
 		private static final String DATABASE_CREATE = "create table "
 				+ "Movies" + " (" + "id"
-				+ " integer primary key autoincrement, " + "title"
+				+ " integer primary key autoincrement, "+ "genre"
+				+ " text not null, "  + "title"
 				+ " text not null, " + "rating" + " real not null);";
 
 		public LocationDatabaseHelper(Context context, String name,

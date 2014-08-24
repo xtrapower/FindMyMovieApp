@@ -10,17 +10,16 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:text=""
-        android:textSize="18sp" />
+        android:textSize="17sp" 
+        android:maxLength="25"/>
 
     <TextView
-        android:id="@+id/id"
+        android:id="@+id/release"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:text=""
-        android:textSize="12sp" />
+        android:textSize="14sp" />
 
     <TextView
         android:id="@+id/rating"
@@ -28,9 +27,14 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/title"
-        android:ellipsize="end"
-        android:maxLength="80"
-        android:maxLines="2"
-        android:textSize="13sp" />
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/popular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/rating"
+        android:layout_alignParentRight="true"
+        android:textSize="14sp" />
 
 </RelativeLayout>

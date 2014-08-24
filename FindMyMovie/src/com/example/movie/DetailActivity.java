@@ -25,7 +25,7 @@ public class DetailActivity extends Activity {
 	Button addButton;
 	NotificationCompat.Builder mBuilder;
 	DetailFetcher dF;
-	TextView title, release, description, rating;
+	TextView title, release, description, rating, genre;
 	Movie mov;
 
 	@Override
@@ -56,12 +56,14 @@ public class DetailActivity extends Activity {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
+		
+	
 		title.setText(mov.getTitle());
 		release.setText(mov.getRelease());
 		rating.setText("" + mov.getRating());
 		description.setText(mov.getDescription());
-
+		genre.setText(mov.getFirstGenre()+"/"+mov.getSecondGenre());
+		
 		WebView web = (WebView) findViewById(R.id.webView1);
 		web.loadUrl("http://image.tmdb.org/t/p/w150" + mov.getImagePath());
 
@@ -94,6 +96,7 @@ public class DetailActivity extends Activity {
 		rating = (TextView) findViewById(R.id.detailRatingText);
 		release = (TextView) findViewById(R.id.detailYearText);
 		description = (TextView) findViewById(R.id.detailDescriptionText);
+		genre = (TextView) findViewById(R.id.detailGenreText);
 
 	}
 

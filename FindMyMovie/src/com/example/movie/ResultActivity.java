@@ -5,6 +5,7 @@ import java.util.concurrent.ExecutionException;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -41,6 +42,7 @@ public class ResultActivity extends Activity {
 		list = (ListView) findViewById(R.id.movieListView);
 		String title = getIntent().getStringExtra("Titel");
 		dF.execute(title);
+		
 		try {
 			mov_adapter = new MovieListAdapter(this, dF.get());
 		} catch (InterruptedException e) {
@@ -58,8 +60,8 @@ public class ResultActivity extends Activity {
 			public void onItemClick(AdapterView<?> arg0, View arg1,
 					int position, long arg3) {
 				
-					Movie mov = (Movie) list .getItemAtPosition(position);
-					database.insertData(mov);
+					//Movie mov = (Movie) list .getItemAtPosition(position);
+					//database.insertData(mov);
 
 			}
 		});

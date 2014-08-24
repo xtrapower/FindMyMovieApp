@@ -88,16 +88,6 @@
         android:layout_marginTop="10dp"
         android:text="@string/detailDescription" />
 
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/detailGenreText"
-        android:layout_toRightOf="@+id/webView1"
-        android:maxLines="1"
-        android:text="Add to WatchList"
-        android:textSize="10sp" />
-
     <WebView
         android:id="@+id/webView1"
         android:layout_width="150dp"
@@ -105,5 +95,15 @@
         android:layout_below="@+id/detailDescriptionText"
         android:layout_marginTop="25dp"
         android:layout_toRightOf="@+id/detailRating" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/detailGenreText"
+        android:maxLines="1"
+        android:text="Add to WatchList"
+        android:textSize="10sp" />
 
 </RelativeLayout>

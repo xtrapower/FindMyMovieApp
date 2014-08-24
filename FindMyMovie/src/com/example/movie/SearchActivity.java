@@ -17,7 +17,6 @@ public class SearchActivity extends Activity {
 	EditText titleEdit, genreEdit;
 	SeekBar ratingBar;
 	float ratingNum;
-	MovieFetcher dF;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +26,6 @@ public class SearchActivity extends Activity {
 
 	private void setupUI() {
 		setContentView(R.layout.search_activity);
-		dF = new MovieFetcher();
 		setupTV();
 		setupButton();
 		setupET();
