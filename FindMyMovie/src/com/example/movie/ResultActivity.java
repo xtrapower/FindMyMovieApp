@@ -71,6 +71,8 @@ public class ResultActivity extends Activity {
 					int arg2, long arg3) {
 				
 					Intent intent = new Intent();
+					Movie mov = (Movie) list .getItemAtPosition(arg2);
+					intent.putExtra("ID", mov.getId());
 					intent.setClass(ResultActivity.this, DetailActivity.class);
 					startActivity(intent);
 				return false;

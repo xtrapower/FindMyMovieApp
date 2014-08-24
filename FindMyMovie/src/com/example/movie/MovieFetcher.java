@@ -27,7 +27,7 @@ public class MovieFetcher extends AsyncTask<String, Float, ArrayList<Movie>> {
 		movs = new ArrayList<Movie>();
 		String JSON = processHttpRequest("http://api.themoviedb.org/3/search/movie?query="
 				+ params[0] + "&api_key=" + API_KEY);
-		try {
+		try {	
 			readJSON(JSON);
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block

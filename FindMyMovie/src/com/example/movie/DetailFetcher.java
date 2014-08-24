@@ -17,33 +17,30 @@ import org.json.JSONObject;
 import android.os.AsyncTask;
 import android.util.Log;
 
-public class DetailFetcher extends AsyncTask<Integer, Float, ArrayList<Movie>> {
+public class DetailFetcher extends AsyncTask<Integer, Float, Movie> {
 
 	String API_KEY = "f4abf758a9edc14dedcad5f120ea63ab";
-	ArrayList<Movie> movs;
-
+	Movie mov;
 	@Override
-	protected ArrayList<Movie> doInBackground(Integer... params) {
+	protected Movie doInBackground(Integer... params) {
 
-		movs = new ArrayList<Movie>();
+		
 		String JSON = processHttpRequest("http://api.themoviedb.org/3/movie/"
 				+ params[0] + "?api_key=" + API_KEY);
 		try {
-			readJSON(JSON);
+			mov = readJSON(JSON);
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		Log.e("e", JSON);
-		return movs;
+		
+		return mov;
 	}
 
-	private void readJSON(String json_string) throws JSONException {
+	private Movie readJSON(String json_string) throws JSONException {
 		JSONObject json = new JSONObject(json_string);
-		JSONArray movie = json.getJSONArray("results");
 		
-			Movie mov = new Movie(movie.getJSONObject(0));
-			movs.add(mov);
+			return new Movie(json,1);
 		
 	}
 

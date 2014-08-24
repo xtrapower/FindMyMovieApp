@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:text="Titanic"
+        android:text=""
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/detailTitle"
         android:layout_below="@+id/detailTitle"
-        android:layout_marginTop="17dp"
+        android:layout_marginTop="10dp"
         android:text="@string/detailGenre" />
 
     <TextView
@@ -32,7 +32,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignRight="@+id/detailGenre"
         android:layout_below="@+id/detailGenre"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
         android:text="@string/detailYear" />
 
     <TextView
@@ -42,7 +42,7 @@
         android:layout_alignBottom="@+id/detailGenre"
         android:layout_alignLeft="@+id/webView1"
         android:layout_marginLeft="46dp"
-        android:text="Drama" />
+        android:text="" />
 
     <TextView
         android:id="@+id/detailYearText"
@@ -50,14 +50,14 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/detailYear"
         android:layout_alignRight="@+id/detailGenreText"
-        android:text="1997" />
+        android:text="" />
 
     <TextView
         android:id="@+id/detailRating"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/detailYear"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
         android:text="@string/detailRating" />
 
     <TextView
@@ -66,7 +66,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/detailRating"
         android:layout_alignRight="@+id/detailYearText"
-        android:text="7.7" />
+        android:text="" />
 
     <TextView
         android:id="@+id/detailDescriptionText"
@@ -75,7 +75,9 @@
         android:layout_alignLeft="@+id/detailDescription"
         android:layout_below="@+id/detailDescription"
         android:layout_marginTop="16dp"
-        android:text="A seventeen-year-old aristocrat, expecting to be married to a rich claimant by her mother, falls in love with a kind but poor artist aboard the luxurious, ill-fated R.M.S. Titanic." />
+        android:maxLines="4"
+        android:ellipsize="end"
+        android:text="" />
 
     <TextView
         android:id="@+id/detailDescription"
@@ -83,25 +85,25 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/detailRating"
         android:layout_below="@+id/detailRating"
-        android:layout_marginTop="21dp"
+        android:layout_marginTop="10dp"
         android:text="@string/detailDescription" />
 
     <Button
         android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/detailGenreText"
         android:layout_toRightOf="@+id/webView1"
-        android:text="Watch"
-        android:textSize="12sp"
-        android:maxLines="1" />
+        android:maxLines="1"
+        android:text="Add to WatchList"
+        android:textSize="10sp" />
 
     <WebView
         android:id="@+id/webView1"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/detailDescriptionText"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="25dp"
         android:layout_toRightOf="@+id/detailRating" />
 
 </RelativeLayout>
