@@ -52,12 +52,12 @@ public class MovieListAdapter extends BaseAdapter {
 	private void setupTextView(View convertView) {
 		
 		TextView title = (TextView) convertView.findViewById(R.id.title);
-		TextView release = (TextView) convertView.findViewById(R.id.release);
+		TextView release_date = (TextView) convertView.findViewById(R.id.release);
 		TextView rating = (TextView) convertView.findViewById(R.id.rating);
 		TextView popular = (TextView) convertView.findViewById(R.id.popular);
 		
 		title.setText(mov.getTitle().replaceAll("\'", "´"));
-		release.setText("Jahr: "+ mov.getRelease());
+		release_date.setText("Jahr: "+ mov.getReleaseDate());
 		rating.setText("Bewertung: " + mov.getRating());
 		popular.setText("Beliebtheit: " + String.format("%.2f", mov.getPopularity()));
 	}

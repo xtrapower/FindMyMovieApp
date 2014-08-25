@@ -33,9 +33,10 @@ public class MovieDatabase {
 	public void insertData(Movie mov) {
 		ContentValues newMovie = new ContentValues();
 		newMovie.put("id", mov.getId());
-		newMovie.put("genre", mov.getFirstGenre());
+		newMovie.put("release_date", mov.getReleaseDate());
 		newMovie.put("title", mov.getTitle().replaceAll("\'", "´"));
 		newMovie.put("rating", mov.getRating());
+		newMovie.put("popular", mov.getPopularity());
 
 		Cursor cursor = db.query("movies", null, "id" + "=?",
 				new String[] { mov.getId() + "" }, null, null, null);
@@ -49,10 +50,11 @@ public class MovieDatabase {
 
 	public void removeMovie(Movie mov) {
 
-		String whereClause = "id" + " = '" + mov.getId() + "' AND " + "genre"
-				+ " = '" + mov.getFirstGenre() + "' AND " + "title"
-						+ " = '" + mov.getTitle() + "' AND " + "rating" + " = '"
-				+ mov.getRating() + "'";
+		String whereClause = "id" + " = '" + mov.getId() + "' AND " + "release_date"
+				+ " = '" + mov.getReleaseDate() + "' AND " + "title" + " = '"
+				+ mov.getTitle() + "' AND " + "rating" + " = '"
+				+ mov.getRating() + "' AND " + "popular" + " = '"
+				+ mov.getPopularity() + "'";
 
 		db.delete("Movies", whereClause, null);
 
@@ -60,17 +62,17 @@ public class MovieDatabase {
 
 	public ArrayList<Movie> getAllItems() {
 		ArrayList<Movie> items = new ArrayList<Movie>();
-		Cursor cursor = db.query("Movies", new String[] { "id", "genre", "title",
-				"rating" }, null, null, null, null, null);
+		Cursor cursor = db.query("Movies", new String[] { "id", "release_date",
+				"title", "rating", "popular" }, null, null, null, null, null);
 		if (cursor.moveToFirst()) {
 			do {
 				int id = cursor.getInt(0);
-				String genre = cursor.getString(1);
+				String release_date = cursor.getString(1);
 				String title = cursor.getString(2);
 				double rating = cursor.getDouble(3);
 				float popular = cursor.getFloat(4);
 
-				items.add(new Movie(id, genre, title, rating, popular));
+				items.add(new Movie(id, release_date, title, rating, popular));
 			} while (cursor.moveToNext());
 		}
 		return items;
@@ -80,9 +82,9 @@ public class MovieDatabase {
 
 		private static final String DATABASE_CREATE = "create table "
 				+ "Movies" + " (" + "id"
-				+ " integer primary key autoincrement, "+ "genre"
-				+ " text not null, "  + "title"
-				+ " text not null, " + "rating" + " real not null);";
+				+ " integer primary key autoincrement, " + "release_date"
+				+ " text not null, " + "title" + " text not null, " + "rating"
+				+ " real not null, " + "popular" + " real not null )";
 
 		public LocationDatabaseHelper(Context context, String name,
 				CursorFactory factory, int version) {

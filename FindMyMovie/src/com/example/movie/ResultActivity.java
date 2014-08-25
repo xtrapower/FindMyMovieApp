@@ -5,11 +5,9 @@ import java.util.concurrent.ExecutionException;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ListView;
 
 public class ResultActivity extends Activity {
@@ -19,6 +17,8 @@ public class ResultActivity extends Activity {
 	MovieFetcher dF;
 	public MovieDatabase database;
 
+	public static final String OBJECT_KEY = "PARCABLE_OBJECT";
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -27,12 +27,12 @@ public class ResultActivity extends Activity {
 	}
 
 	private void init() {
-		
+
 		dF = new MovieFetcher();
 		initListView();
 		initLocationDatabase();
 	}
-	
+
 	private void initLocationDatabase() {
 		database = new MovieDatabase(this);
 		database.open();
@@ -42,7 +42,7 @@ public class ResultActivity extends Activity {
 		list = (ListView) findViewById(R.id.movieListView);
 		String title = getIntent().getStringExtra("Titel");
 		dF.execute(title);
-		
+
 		try {
 			mov_adapter = new MovieListAdapter(this, dF.get());
 		} catch (InterruptedException e) {
@@ -59,27 +59,20 @@ public class ResultActivity extends Activity {
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1,
 					int position, long arg3) {
-				
-					//Movie mov = (Movie) list .getItemAtPosition(position);
-					//database.insertData(mov);
 
+				// Movie mov = (Movie) list .getItemAtPosition(position);
+				// database.insertData(mov);
+				Movie mov = (Movie) list.getItemAtPosition(position);
+				startReceiverActivity(mov);
 			}
 		});
-		
-		list.setOnItemLongClickListener(new OnItemLongClickListener() {
+	}
 
-			@Override
-			public boolean onItemLongClick(AdapterView<?> arg0, View arg1,
-					int arg2, long arg3) {
-				
-					Intent intent = new Intent();
-					Movie mov = (Movie) list .getItemAtPosition(arg2);
-					intent.putExtra("ID", mov.getId());
-					intent.setClass(ResultActivity.this, DetailActivity.class);
-					startActivity(intent);
-				return false;
-			}
-		});
+	private void startReceiverActivity(Movie mov) {
+		Intent receiverActivity = new Intent(ResultActivity.this,
+				DetailActivity.class);
+		receiverActivity.putExtra(OBJECT_KEY, mov);
+		startActivity(receiverActivity);
 	}
 
 }

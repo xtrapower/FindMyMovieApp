@@ -7,12 +7,10 @@ import android.app.Activity;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
-import android.util.Log;
-import android.view.Gravity;
+
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
@@ -25,7 +23,7 @@ public class DetailActivity extends Activity {
 	Button addButton;
 	NotificationCompat.Builder mBuilder;
 	DetailFetcher dF;
-	TextView title, release, description, rating, genre;
+	TextView title, release_date, description, rating, genre;
 	Movie mov;
 
 	@Override
@@ -33,7 +31,9 @@ public class DetailActivity extends Activity {
 		super.onCreate(savedInstanceState);
 
 		dF = new DetailFetcher();
-		dF.execute((int) getIntent().getExtras().get("ID"));
+		mov = (Movie) getIntent().getExtras().getParcelable(
+				ResultActivity.OBJECT_KEY);
+		dF.execute(mov.getId());
 		setupUI();
 	}
 
@@ -41,8 +41,8 @@ public class DetailActivity extends Activity {
 		setContentView(R.layout.detail);
 
 		setupTV();
-		setupButton();
 		initLocationDatabase();
+		setupButton();
 		setupText();
 	}
 
@@ -56,14 +56,13 @@ public class DetailActivity extends Activity {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-	
+
 		title.setText(mov.getTitle());
-		release.setText(mov.getRelease());
+		release_date.setText(mov.getReleaseDate());
 		rating.setText("" + mov.getRating());
 		description.setText(mov.getDescription());
-		genre.setText(mov.getFirstGenre()+"/"+mov.getSecondGenre());
-		
+		genre.setText(mov.getGenre());
+
 		WebView web = (WebView) findViewById(R.id.webView1);
 		web.loadUrl("http://image.tmdb.org/t/p/w150" + mov.getImagePath());
 
@@ -76,8 +75,8 @@ public class DetailActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				// Movie mov = (Movie) list .getItemAtPosition(position);
-				// database.insertData(mov);
+
+				database.insertData(mov);
 
 			}
 		});
@@ -94,7 +93,7 @@ public class DetailActivity extends Activity {
 
 		title = (TextView) findViewById(R.id.detailTitle);
 		rating = (TextView) findViewById(R.id.detailRatingText);
-		release = (TextView) findViewById(R.id.detailYearText);
+		release_date = (TextView) findViewById(R.id.detailYearText);
 		description = (TextView) findViewById(R.id.detailDescriptionText);
 		genre = (TextView) findViewById(R.id.detailGenreText);
 
