@@ -21,6 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/detailTitle"
+        android:layout_alignStart="@+id/detailTitle"
         android:layout_below="@+id/detailTitle"
         android:layout_marginTop="10dp"
         android:text="@string/detailGenre" />
@@ -29,7 +30,9 @@
         android:id="@+id/detailYear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/detailGenre"
         android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_alignRight="@+id/detailGenre"
         android:layout_below="@+id/detailGenre"
         android:layout_marginTop="10dp"
@@ -42,6 +45,8 @@
         android:layout_alignBottom="@+id/detailGenre"
         android:layout_alignLeft="@+id/webView1"
         android:layout_marginLeft="46dp"
+        android:layout_alignStart="@+id/webView1"
+        android:layout_marginStart="46dp"
         android:text="" />
 
     <TextView
@@ -50,6 +55,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/detailYear"
         android:layout_alignRight="@+id/detailGenreText"
+        android:layout_alignEnd="@+id/detailGenreText"
         android:text="" />
 
     <TextView
@@ -66,6 +72,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/detailRating"
         android:layout_alignRight="@+id/detailYearText"
+        android:layout_alignEnd="@+id/detailYearText"
         android:text="" />
 
     <TextView
@@ -73,10 +80,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/detailDescription"
+        android:layout_alignStart="@+id/detailDescription"
         android:layout_below="@+id/detailDescription"
         android:layout_marginTop="16dp"
-        android:maxLines="4"
         android:ellipsize="end"
+        android:maxLines="4"
         android:text="" />
 
     <TextView
@@ -84,6 +92,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/detailRating"
+        android:layout_alignStart="@+id/detailRating"
         android:layout_below="@+id/detailRating"
         android:layout_marginTop="10dp"
         android:text="@string/detailDescription" />
@@ -94,16 +103,18 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/detailDescriptionText"
         android:layout_marginTop="25dp"
-        android:layout_toRightOf="@+id/detailRating" />
+        android:layout_toRightOf="@+id/detailRating"
+        android:layout_toEndOf="@+id/detailRating" />
 
     <Button
         android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignTop="@+id/detailGenreText"
         android:maxLines="1"
-        android:text="Add to WatchList"
-        android:textSize="10sp" />
+        android:text="@string/add_button"
+        android:textSize="12sp" />
 
 </RelativeLayout>

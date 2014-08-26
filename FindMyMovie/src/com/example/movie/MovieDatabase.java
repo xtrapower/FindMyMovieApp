@@ -15,7 +15,9 @@ public class MovieDatabase {
 	private SQLiteDatabase db;
 
 	public MovieDatabase(Context context) {
-		helper = new LocationDatabaseHelper(context, "moviesearch", null, 1);
+		helper = new LocationDatabaseHelper(context,
+				AppConfig.Data.DATABASE_KEY, null,
+				AppConfig.Data.DATABASE_VERSION);
 	}
 
 	public void open() throws SQLException {
@@ -32,38 +34,44 @@ public class MovieDatabase {
 
 	public void insertData(Movie mov) {
 		ContentValues newMovie = new ContentValues();
-		newMovie.put("id", mov.getId());
-		newMovie.put("release_date", mov.getReleaseDate());
-		newMovie.put("title", mov.getTitle().replaceAll("\'", "´"));
-		newMovie.put("rating", mov.getRating());
-		newMovie.put("popular", mov.getPopularity());
+		newMovie.put(AppConfig.Data.ID_KEY, mov.getId());
+		newMovie.put(AppConfig.Data.RELEASE_KEY, mov.getReleaseDate());
+		newMovie.put(AppConfig.Data.TITLE_KEY,
+				mov.getTitle().replaceAll("\'", "´"));
+		newMovie.put(AppConfig.Data.RATING_KEY, mov.getRating());
+		newMovie.put(AppConfig.Data.POPULAR_KEY, mov.getPopularity());
 
-		Cursor cursor = db.query("movies", null, "id" + "=?",
+		Cursor cursor = db.query(AppConfig.Data.TABLE_KEY, null,
+				AppConfig.Data.ID_KEY + "=?",
 				new String[] { mov.getId() + "" }, null, null, null);
 		if (cursor.getCount() > 0) {
-			db.update("movies", newMovie, "id" + "=?",
-					new String[] { mov.getId() + "" });
+			db.update(AppConfig.Data.TABLE_KEY, newMovie, AppConfig.Data.ID_KEY
+					+ "=?", new String[] { mov.getId() + "" });
 		} else {
-			db.insert("movies", null, newMovie);
+			db.insert(AppConfig.Data.TABLE_KEY, null, newMovie);
 		}
 	}
 
 	public void removeMovie(Movie mov) {
 
-		String whereClause = "id" + " = '" + mov.getId() + "' AND " + "release_date"
-				+ " = '" + mov.getReleaseDate() + "' AND " + "title" + " = '"
-				+ mov.getTitle() + "' AND " + "rating" + " = '"
-				+ mov.getRating() + "' AND " + "popular" + " = '"
+		String whereClause = AppConfig.Data.ID_KEY + " = '" + mov.getId()
+				+ "' AND " + AppConfig.Data.RELEASE_KEY + " = '"
+				+ mov.getReleaseDate() + "' AND " + AppConfig.Data.TITLE_KEY
+				+ " = '" + mov.getTitle() + "' AND "
+				+ AppConfig.Data.RATING_KEY + " = '" + mov.getRating()
+				+ "' AND " + AppConfig.Data.POPULAR_KEY + " = '"
 				+ mov.getPopularity() + "'";
 
-		db.delete("Movies", whereClause, null);
+		db.delete(AppConfig.Data.TABLE_KEY, whereClause, null);
 
 	}
 
 	public ArrayList<Movie> getAllItems() {
 		ArrayList<Movie> items = new ArrayList<Movie>();
-		Cursor cursor = db.query("Movies", new String[] { "id", "release_date",
-				"title", "rating", "popular" }, null, null, null, null, null);
+		Cursor cursor = db.query(AppConfig.Data.TABLE_KEY, new String[] {
+				AppConfig.Data.ID_KEY, AppConfig.Data.RELEASE_KEY,
+				AppConfig.Data.TITLE_KEY, AppConfig.Data.RATING_KEY,
+				AppConfig.Data.POPULAR_KEY }, null, null, null, null, null);
 		if (cursor.moveToFirst()) {
 			do {
 				int id = cursor.getInt(0);
@@ -81,10 +89,12 @@ public class MovieDatabase {
 	private class LocationDatabaseHelper extends SQLiteOpenHelper {
 
 		private static final String DATABASE_CREATE = "create table "
-				+ "Movies" + " (" + "id"
-				+ " integer primary key autoincrement, " + "release_date"
-				+ " text not null, " + "title" + " text not null, " + "rating"
-				+ " real not null, " + "popular" + " real not null )";
+				+ AppConfig.Data.TABLE_KEY + " (" + AppConfig.Data.ID_KEY
+				+ " integer primary key autoincrement, "
+				+ AppConfig.Data.RELEASE_KEY + " text not null, "
+				+ AppConfig.Data.TITLE_KEY + " text not null, "
+				+ AppConfig.Data.RATING_KEY + " real not null, "
+				+ AppConfig.Data.POPULAR_KEY + " real not null )";
 
 		public LocationDatabaseHelper(Context context, String name,
 				CursorFactory factory, int version) {

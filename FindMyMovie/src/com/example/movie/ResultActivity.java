@@ -14,7 +14,7 @@ public class ResultActivity extends Activity {
 
 	private MovieListAdapter mov_adapter;
 	private ListView list;
-	MovieFetcher dF;
+	private MovieFetcher dF;
 	public MovieDatabase database;
 
 	public static final String OBJECT_KEY = "PARCABLE_OBJECT";
@@ -28,9 +28,16 @@ public class ResultActivity extends Activity {
 
 	private void init() {
 
-		dF = new MovieFetcher();
+		initFetcher();
 		initListView();
 		initLocationDatabase();
+	}
+
+	private void initFetcher() {
+		
+		String title = getIntent().getStringExtra("Titel");
+		dF = new MovieFetcher();
+		dF.execute(title);
 	}
 
 	private void initLocationDatabase() {
@@ -40,9 +47,7 @@ public class ResultActivity extends Activity {
 
 	private void initListView() {
 		list = (ListView) findViewById(R.id.movieListView);
-		String title = getIntent().getStringExtra("Titel");
-		dF.execute(title);
-
+		
 		try {
 			mov_adapter = new MovieListAdapter(this, dF.get());
 		} catch (InterruptedException e) {
@@ -52,6 +57,7 @@ public class ResultActivity extends Activity {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		mov_adapter.notifyDataSetChanged();
 		list.setAdapter(mov_adapter);
 		list.setOnItemClickListener(new OnItemClickListener() {
@@ -60,8 +66,6 @@ public class ResultActivity extends Activity {
 			public void onItemClick(AdapterView<?> arg0, View arg1,
 					int position, long arg3) {
 
-				// Movie mov = (Movie) list .getItemAtPosition(position);
-				// database.insertData(mov);
 				Movie mov = (Movie) list.getItemAtPosition(position);
 				startReceiverActivity(mov);
 			}

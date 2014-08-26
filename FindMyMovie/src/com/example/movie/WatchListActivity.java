@@ -4,10 +4,6 @@ import java.util.ArrayList;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.AlertDialog.Builder;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.DialogInterface.OnClickListener;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -20,9 +16,7 @@ public class WatchListActivity extends Activity {
 	private ArrayList<Movie> movs;
 	private ListView list;
 	private AlertDialog errorDialog;
-
-	MovieFetcher dF;
-	MovieDatabase database;
+	private MovieDatabase database;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -32,35 +26,35 @@ public class WatchListActivity extends Activity {
 	}
 
 	private void init() {
-		movs = new ArrayList<Movie>();
-		dF = new MovieFetcher();
-		database = new MovieDatabase(this);
-		database.open();
+
+		initDatabase();
 		initData();
 		initListView();
 
 	}
 
+	private void initDatabase() {
+		database = new MovieDatabase(this);
+		database.open();
+
+	}
+
 	private void initData() {
 
-		movs.clear();
-		movs.addAll(database.getAllItems());
+		movs = new ArrayList<Movie>();
 		mov_adapter = new MovieListAdapter(this, movs);
-		mov_adapter.notifyDataSetChanged();
-
-		checkEmpty();
-		
+		updateList();
 	}
 
 	private void checkEmpty() {
 		if (database.getAllItems().isEmpty()) {
 			errorDialog = DialogHelper.getErrorDialog(this, "Fehler",
 					"Keine Filme in der WatchList Datenbank enthalten!", true);
-			
+
 			errorDialog.show();
 
 		}
-		
+
 	}
 
 	private void initListView() {

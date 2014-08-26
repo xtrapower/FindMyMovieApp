@@ -2,6 +2,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:layout_marginLeft="15dp"
+    android:layout_marginStart="15dp"
     android:layout_marginTop="5dp" >
 
     <TextView
@@ -9,14 +10,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:textSize="17sp" 
-        android:maxLength="25"/>
+        android:maxLength="25"
+        android:textSize="17sp" />
 
     <TextView
         android:id="@+id/release"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:textSize="14sp" />
@@ -26,6 +29,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/title"
         android:textSize="14sp" />
 
@@ -34,6 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/rating"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:textSize="14sp" />
 

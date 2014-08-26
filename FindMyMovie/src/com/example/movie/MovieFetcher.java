@@ -18,15 +18,14 @@ import android.os.AsyncTask;
 
 public class MovieFetcher extends AsyncTask<String, Float, ArrayList<Movie>> {
 
-	String API_KEY = "f4abf758a9edc14dedcad5f120ea63ab";
-	ArrayList<Movie> movs;
+	private ArrayList<Movie> movs;
 
 	@Override
 	protected ArrayList<Movie> doInBackground(String... params) {
 
 		movs = new ArrayList<Movie>();
-		String JSON = processHttpRequest("http://api.themoviedb.org/3/search/movie?query="
-				+ params[0] + "&api_key=" + API_KEY);
+		String JSON = processHttpRequest(AppConfig.Server.URL_GET_SEARCH
+				+ params[0] +"&"+ AppConfig.Server.API_KEY);
 		try {	
 			readJSON(JSON);
 		} catch (JSONException e) {

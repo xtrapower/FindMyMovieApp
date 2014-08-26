@@ -5,9 +5,8 @@ import org.json.JSONObject;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.os.Parcelable.Creator;
 
-public final class Movie  implements Parcelable {
+public final class Movie implements Parcelable {
 
 	private int id;
 	private String title, release_date, description, imagePath, firstGenre,
@@ -15,7 +14,8 @@ public final class Movie  implements Parcelable {
 	private double rating;
 	private float popular;
 
-	public Movie(int id, String release_date, String title, double rating, float popular) {
+	public Movie(int id, String release_date, String title, double rating,
+			float popular) {
 		this.id = id;
 		this.release_date = release_date;
 		this.title = title;
@@ -58,7 +58,7 @@ public final class Movie  implements Parcelable {
 		this.imagePath = json.getString("poster_path");
 
 	}
-	
+
 	public Movie(Parcel in) {
 		this.id = in.readInt();
 		this.title = in.readString();
@@ -82,7 +82,7 @@ public final class Movie  implements Parcelable {
 
 		return rating;
 	}
-	
+
 	public float getPopularity() {
 
 		return popular;
@@ -97,9 +97,9 @@ public final class Movie  implements Parcelable {
 
 		return secondGenre;
 	}
-	
+
 	public String getGenre() {
-		
+
 		return firstGenre + "/" + secondGenre;
 	}
 
@@ -122,16 +122,10 @@ public final class Movie  implements Parcelable {
 		return title;
 	}
 
-	public String toJson() {
-		return "{\"id\":\"" + id + "\",\"title\":\"" + title
-				+ "\",\"vote_average\":\"" + rating + "\"}";
-	}
-	
 	public int describeContents() {
 		return 0;
 	}
 
-	
 	public void writeToParcel(Parcel schlauch, int flags) {
 		schlauch.writeInt(id);
 		schlauch.writeString(title);

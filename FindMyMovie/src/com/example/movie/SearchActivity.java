@@ -12,11 +12,12 @@ import android.widget.TextView;
 
 public class SearchActivity extends Activity {
 
-	TextView title, genre, rating, actRating;
-	Button search;
-	EditText titleEdit, genreEdit;
-	SeekBar ratingBar;
-	float ratingNum;
+	private TextView actRating;
+	private Button search;
+	@SuppressWarnings("unused")
+	private EditText titleEdit, genreEdit;
+	private SeekBar ratingBar;
+	private float ratingNum;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +27,12 @@ public class SearchActivity extends Activity {
 
 	private void setupUI() {
 		setContentView(R.layout.search_activity);
+		setupUIElements();
+
+	}
+
+	private void setupUIElements() {
+
 		setupTV();
 		setupButton();
 		setupET();
@@ -71,20 +78,28 @@ public class SearchActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
+				startActivityWithExtra();
 
-				Intent intent = new Intent();
-				intent.putExtra("Titel", titleEdit.getText().toString());
-				intent.setClass(SearchActivity.this, ResultActivity.class);
-				startActivity(intent);
 			}
+
 		});
 	}
 
+	private void startActivityWithExtra() {
+		Intent intent = new Intent();
+		intent.putExtra("Titel",
+				titleEdit.getText().toString().replaceAll(" ", "%20"));
+		intent.setClass(SearchActivity.this, ResultActivity.class);
+		startActivity(intent);
+
+	}
+
+	@SuppressWarnings("unused")
 	private void setupTV() {
 
-		title = (TextView) findViewById(R.id.title_search);
-		genre = (TextView) findViewById(R.id.genre_search);
-		rating = (TextView) findViewById(R.id.rating_search);
+		TextView title = (TextView) findViewById(R.id.title_search);
+		TextView genre = (TextView) findViewById(R.id.genre_search);
+		TextView rating = (TextView) findViewById(R.id.rating_search);
 		actRating = (TextView) findViewById(R.id.rating);
 	}
 

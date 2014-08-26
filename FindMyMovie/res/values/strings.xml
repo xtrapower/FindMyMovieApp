@@ -7,14 +7,14 @@
     <string name="title">FindMyMovie</string>
     <string name="below_title">Die Filmsuche App</string>
     <string name="search_button">Film suchen</string>
-    <string name="watchlist_button">Watchlist</string>
+    <string name="watchlist_button">WatchList</string>
     <string name="title_search">Titel</string>
     <string name="genre_search">Genre</string>
     <string name="rating_search">Bewertung</string>
     <string name="search">Suche</string>
     <string name="titleEx">z.B. Titanic</string>
     <string name="genreEx">z.B. Komödie</string>
-    
+    <string name="add_button">Add to WatchList</string>
     <string name="detailGenre">Genre:</string>
     <string name="detailYear">Jahr:</string>
     <string name="detailRating">Bewertung:</string>
