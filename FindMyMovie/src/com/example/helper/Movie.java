@@ -1,4 +1,4 @@
-package com.example.movie;
+package com.example.helper;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -42,18 +42,38 @@ public final class Movie implements Parcelable {
 		this.title = json.getString("title");
 		this.rating = json.getDouble("vote_average");
 		this.popular = (float) json.getDouble("popularity");
-
+		
+	}
+	
+	public Movie(JSONObject json, float i) throws JSONException {
+		this.id = json.getInt("id");
+		this.release_date = json.getString("release_date");
+		this.title = json.getString("title");
+		this.rating = 0.0;
+		this.popular = 0.0f;
 	}
 
+
 	public Movie(JSONObject json, int i) throws JSONException {
+
 		this.id = json.getInt("id");
 		this.title = json.getString("title");
 		this.rating = json.getDouble("vote_average");
-		this.firstGenre = json.getJSONArray("genres").getJSONObject(0)
-				.getString("name");
-		this.secondGenre = json.getJSONArray("genres").getJSONObject(1)
-				.getString("name");
-		this.release_date = json.getString("release_date").substring(0, 4);
+		if (json.getJSONArray("genres").isNull(0)) {
+			this.firstGenre = "";
+			this.secondGenre = "";
+		} else {
+			this.firstGenre = json.getJSONArray("genres").getJSONObject(0)
+					.getString("name");
+			this.secondGenre = json.getJSONArray("genres").getJSONObject(1)
+					.getString("name");
+		}
+		if (json.getString("release_date").length() == 0) {
+			this.release_date = "/";
+
+		} else {
+			this.release_date = json.getString("release_date").substring(0, 4);
+		}
 		this.description = json.getString("overview");
 		this.imagePath = json.getString("poster_path");
 

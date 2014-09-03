@@ -1,4 +1,4 @@
-package com.example.movie;
+package com.example.fetcher;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -10,38 +10,38 @@ import org.apache.http.StatusLine;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.example.helper.AppConfig;
+import com.example.helper.Movie;
+
 import android.os.AsyncTask;
 
-public class MovieFetcher extends AsyncTask<String, Float, ArrayList<Movie>> {
+public class DetailFetcher extends AsyncTask<Integer, Float, Movie> {
 
-	private ArrayList<Movie> movs;
+	private Movie mov;
 
 	@Override
-	protected ArrayList<Movie> doInBackground(String... params) {
+	protected Movie doInBackground(Integer... params) {
 
-		movs = new ArrayList<Movie>();
-		String JSON = processHttpRequest(AppConfig.Server.URL_GET_SEARCH
-				+ params[0] +"&"+ AppConfig.Server.API_KEY);
-		try {	
-			readJSON(JSON);
+		String JSON = processHttpRequest(AppConfig.Server.URL_GET_DETAIL
+				+ params[0] +"?"+ AppConfig.Server.API_KEY);
+		try {
+			mov = readJSON(JSON);
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return movs;
+
+		return mov;
 	}
 
-	private void readJSON(String json_string) throws JSONException {
+	private Movie readJSON(String json_string) throws JSONException {
 		JSONObject json = new JSONObject(json_string);
-		JSONArray movie = json.getJSONArray("results");
-		for (int i = 0; i < 10; i++) {
-			Movie mov = new Movie(movie.getJSONObject(i));
-			movs.add(mov);
-		}
+
+		return new Movie(json, 1);
+
 	}
 
 	private String processHttpRequest(String url) {

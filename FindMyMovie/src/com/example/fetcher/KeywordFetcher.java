@@ -1,4 +1,4 @@
-package com.example.movie;
+package com.example.fetcher;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -10,34 +10,34 @@ import org.apache.http.StatusLine;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.example.helper.AppConfig;
+
 import android.os.AsyncTask;
 
-public class DetailFetcher extends AsyncTask<Integer, Float, Movie> {
-
-	private Movie mov;
+public class KeywordFetcher extends AsyncTask<String, Float, String> {
 
 	@Override
-	protected Movie doInBackground(Integer... params) {
-
-		String JSON = processHttpRequest(AppConfig.Server.URL_GET_DETAIL
-				+ params[0] +"?"+ AppConfig.Server.API_KEY);
+	protected String doInBackground(String... params) {
+		String id = "";
+		String JSON = processHttpRequest(AppConfig.Server.URL_GET_KEYWORD_ID
+				+ params[0] + "&" + AppConfig.Server.API_KEY);
 		try {
-			mov = readJSON(JSON);
+			id = readJSON(JSON);
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-		return mov;
+		return id;
 	}
 
-	private Movie readJSON(String json_string) throws JSONException {
+	private String readJSON(String json_string) throws JSONException {
 		JSONObject json = new JSONObject(json_string);
-
-		return new Movie(json, 1);
+		JSONArray kwID = json.getJSONArray("results");
+		return kwID.getJSONObject(0).getString("id").toString();
 
 	}
 

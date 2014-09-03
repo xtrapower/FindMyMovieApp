@@ -1,10 +1,19 @@
-package com.example.movie;
+package com.example.activities;
 
 import java.util.concurrent.ExecutionException;
+
+import com.example.fetcher.MovieFetcher;
+import com.example.helper.Movie;
+import com.example.helper.MovieDatabase;
+import com.example.helper.MovieListAdapter;
+import com.example.movie.R;
+import com.example.movie.R.id;
+import com.example.movie.R.layout;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -34,10 +43,46 @@ public class ResultActivity extends Activity {
 	}
 
 	private void initFetcher() {
-		
-		String title = getIntent().getStringExtra("Titel");
+
+		String art = getIntent().getStringExtra("Art");
 		dF = new MovieFetcher();
-		dF.execute(title);
+
+		switch (art) {
+		 
+		case "Titel":
+				String title = getIntent().getStringExtra("Titel");
+				dF.execute(title, art);
+			break;
+			
+		case "Titel+Jahr":
+				String titleYear = getIntent().getStringExtra("Titel");
+				String year = getIntent().getStringExtra("Jahr");
+				dF.execute(titleYear, art, year);
+			break;
+		
+		case "Keyword":
+				String keyword = getIntent().getStringExtra("Keyword");
+			 	dF.execute(keyword, art);
+			break;
+			
+		case "Person":
+				String name = getIntent().getStringExtra("Person");
+				dF.execute(name, art);
+		break;
+		
+		case "Para":
+				String genre = getIntent().getStringExtra("Genre");
+				String yearPara = getIntent().getStringExtra("Jahr");
+				String rating = getIntent().getStringExtra("Bewertung");
+				String popular = getIntent().getStringExtra("Beliebt");
+				dF.execute(genre, art, yearPara, rating, popular);
+		break;
+		
+
+			
+		default:
+			break;
+		}
 	}
 
 	private void initLocationDatabase() {
@@ -47,7 +92,7 @@ public class ResultActivity extends Activity {
 
 	private void initListView() {
 		list = (ListView) findViewById(R.id.movieListView);
-		
+
 		try {
 			mov_adapter = new MovieListAdapter(this, dF.get());
 		} catch (InterruptedException e) {
@@ -57,7 +102,7 @@ public class ResultActivity extends Activity {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		mov_adapter.notifyDataSetChanged();
 		list.setAdapter(mov_adapter);
 		list.setOnItemClickListener(new OnItemClickListener() {

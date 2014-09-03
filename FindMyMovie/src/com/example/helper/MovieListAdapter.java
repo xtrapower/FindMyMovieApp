@@ -1,6 +1,8 @@
-package com.example.movie;
+package com.example.helper;
 
 import java.util.ArrayList;
+
+import com.example.movie.R;
 
 import android.content.Context;
 import android.view.LayoutInflater;

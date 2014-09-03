@@ -19,8 +19,82 @@
     <string name="detailYear">Jahr:</string>
     <string name="detailRating">Bewertung:</string>
     <string name="detailDescription">Beschreibung:</string>
-    
-    
-    
+    <string name="genre_prompt">Choose a genre</string>
+
+    <string-array name="genre_arrays">
+        <item>Action</item>
+        <item>Adventure</item>
+        <item>Animation</item>
+        <item>Comedy</item>
+        <item>Crime</item>
+        <item>Disaster</item>
+        <item>Documentary</item>
+        <item>Drama</item>
+        <item>Eastern</item>
+        <item>Erotic</item>
+        <item>Family</item>
+        <item>Fan Film</item>
+        <item>Fantasy</item>
+        <item>Film Noir</item>
+        <item>Foreign</item>
+        <item>History</item>
+        <item>Holiday</item>
+        <item>Horror</item>
+        <item>Indie</item>
+        <item>Music</item>
+        <item>Musical</item>
+        <item>Mystery</item>
+        <item>Neo-noir</item>
+        <item>Road Movie</item>
+        <item>Romance</item>
+        <item>Science Fiction</item>
+        <item>Short</item>
+        <item>Sport</item>
+        <item>Sporting Event</item>
+        <item>Sports Film</item>
+        <item>Suspense</item>
+        <item>TV Movie</item>
+        <item>Thriller</item>
+        <item>War</item>
+        <item>Western</item>
+    </string-array>
+
+    <integer-array name="genre_ids">
+        <item>28</item>
+        <item>12</item>
+        <item>16</item>
+        <item>35</item>
+        <item>80</item>
+        <item>105</item>
+        <item>99</item>
+        <item>18</item>
+        <item>82</item>
+        <item>2916</item>
+        <item>10751</item>
+        <item>10750</item>
+        <item>14</item>
+        <item>10753</item>
+        <item>10769</item>
+        <item>36</item>
+        <item>10595</item>
+        <item>27</item>
+        <item>10756</item>
+        <item>10402</item>
+        <item>22</item>
+        <item>9648</item>
+        <item>10754</item>
+        <item>1115</item>
+        <item>10749</item>
+        <item>878</item>
+        <item>10755</item>
+        <item>9805</item>
+        <item>10758</item>
+        <item>10757</item>
+        <item>10748</item>
+        <item>10770</item>
+        <item>53</item>
+        <item>10752</item>
+        <item>37</item>
+    </integer-array>
 
 </resources>

@@ -1,10 +1,21 @@
-package com.example.movie;
+package com.example.helper;
 
 public class AppConfig {
 
 	public class Server {
 		public static final String URL_GET_DETAIL = "https://api.themoviedb.org/3/movie/";
 		public static final String URL_GET_SEARCH = "https://api.themoviedb.org/3/search/movie?query=";
+		public static final String URL_GET_KEYWORD_ID = "https://api.themoviedb.org/3/search/keyword?query=";
+		public static final String URL_GET_KEYWORD_SEARCH = "https://api.themoviedb.org/3/keyword/";
+		public static final String URL_GET_PERSON_ID = "https://api.themoviedb.org/3/search/person?query=";
+		public static final String URL_GET_PERSON_SEARCH = "http://api.themoviedb.org/3/person/";
+		public static final String URL_GET_GENRE_SEARCH = "http://api.themoviedb.org/3/discover/movie?";
+	
+		public static final String URL_GET_SEARCH_EXTRA = "&primary_release_year=";
+		public static final String URL_GET_GENRE_EXTRA = "&with_genres=";
+		public static final String URL_GET_RATING_EXTRA = "&vote_average.gte=";
+		public static final String URL_GET_POPULAR_EXTRA = "&vote_count.gte=";
+
 		public static final String API_KEY = "api_key=f4abf758a9edc14dedcad5f120ea63ab";
 		public static final String URL_GET_IMAGE = "https://image.tmdb.org/t/p/w150";
 

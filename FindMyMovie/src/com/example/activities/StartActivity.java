@@ -1,4 +1,8 @@
-package com.example.movie;
+package com.example.activities;
+
+import com.example.movie.R;
+import com.example.movie.R.id;
+import com.example.movie.R.layout;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -33,7 +37,7 @@ public class StartActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				intent = new Intent();
-				intent.setClass(StartActivity.this, SearchActivity.class);
+				intent.setClass(StartActivity.this, ChooseSearchActivity.class);
 				startActivity(intent);
 			}
 		});
