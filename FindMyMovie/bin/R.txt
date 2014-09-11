@@ -254,7 +254,6 @@ int id always 0x7f05000b
 int id bTitle 0x7f05003c
 int id beginning 0x7f050011
 int id button1 0x7f050049
-int id checkBox1 0x7f050066
 int id checkbox 0x7f05002d
 int id collapseActionView 0x7f05000d
 int id default_activity_button 0x7f050028
@@ -307,7 +306,7 @@ int id progress_horizontal 0x7f050019
 int id radio 0x7f05002f
 int id rating 0x7f05004f
 int id ratingBar 0x7f050056
-int id ratingCheckBox 0x7f050055
+int id ratingTextBox 0x7f050055
 int id release 0x7f05004e
 int id search 0x7f05003d
 int id searchButton 0x7f05004a
@@ -330,6 +329,7 @@ int id spinner1 0x7f050054
 int id split_action_bar 0x7f05001e
 int id submit_area 0x7f050039
 int id tabMode 0x7f050002
+int id textBox1 0x7f050066
 int id title 0x7f05002b
 int id titleSearch 0x7f050065
 int id titleText 0x7f050064
@@ -340,8 +340,8 @@ int id useLogo 0x7f050003
 int id watchlist 0x7f05003e
 int id webView1 0x7f050043
 int id withText 0x7f05000c
-int id yearCheckBox 0x7f050053
 int id yearEdit 0x7f050052
+int id yearTextBox 0x7f050053
 int integer abc_max_action_buttons 0x7f090000
 int layout abc_action_bar_decor 0x7f030000
 int layout abc_action_bar_decor_include 0x7f030001

@@ -1,8 +1,10 @@
 package com.example.activities;
 
+import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
 import com.example.fetcher.MovieFetcher;
+import com.example.helper.DialogHelper;
 import com.example.helper.Movie;
 import com.example.helper.MovieDatabase;
 import com.example.helper.MovieListAdapter;
@@ -11,6 +13,7 @@ import com.example.movie.R.id;
 import com.example.movie.R.layout;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -25,6 +28,7 @@ public class ResultActivity extends Activity {
 	private ListView list;
 	private MovieFetcher dF;
 	public MovieDatabase database;
+	private ArrayList<Movie> mov_list;
 
 	public static final String OBJECT_KEY = "PARCABLE_OBJECT";
 
@@ -92,9 +96,9 @@ public class ResultActivity extends Activity {
 
 	private void initListView() {
 		list = (ListView) findViewById(R.id.movieListView);
-
+		
 		try {
-			mov_adapter = new MovieListAdapter(this, dF.get());
+			mov_list = dF.get();
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -102,9 +106,21 @@ public class ResultActivity extends Activity {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
+		mov_adapter = new MovieListAdapter(this, mov_list);
 		mov_adapter.notifyDataSetChanged();
 		list.setAdapter(mov_adapter);
+		
+		//
+		// Falls Liste leer, wird Fehler angezeigt
+		//
+		
+		if (mov_list.isEmpty()) {
+			AlertDialog errorDialog = DialogHelper.getErrorDialog(this, "Fehler",
+					"Keine Filme gefunden!", true);
+
+			errorDialog.show();
+
+		}
 		list.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override

@@ -21,10 +21,7 @@ public class TitleSearchActivity extends Activity {
 	private Button search;
 	@SuppressWarnings("unused")
 	private EditText titleEdit, yearEdit;
-	private CheckBox checkBox;
 
-	// private SeekBar ratingBar;
-	// private float ratingNum;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +48,6 @@ public class TitleSearchActivity extends Activity {
 		titleEdit = (EditText) findViewById(R.id.edit_title);
 		yearEdit = (EditText) findViewById(R.id.edit_year);
 
-		checkBox = (CheckBox) findViewById(R.id.checkBox1);
 
 	}
 
@@ -73,7 +69,7 @@ public class TitleSearchActivity extends Activity {
 		Intent intent = new Intent();
 		intent.putExtra("Titel",
 				titleEdit.getText().toString().replaceAll(" ", "%20"));
-		if (checkBox.isChecked()) {
+		if (yearEdit.getText().toString() == "") {
 			intent.putExtra("Art", "Titel+Jahr");
 			intent.putExtra("Jahr", yearEdit.getText().toString());
 		} else {

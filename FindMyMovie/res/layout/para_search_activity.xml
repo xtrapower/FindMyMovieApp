@@ -17,7 +17,7 @@
         android:id="@+id/yearEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/yearCheckBox"
+        android:layout_below="@+id/yearTextBox"
         android:layout_centerHorizontal="true"
         android:ems="10"
         android:hint="z.B. 2000"
@@ -32,8 +32,8 @@
         android:entries="@array/genre_arrays"
         android:prompt="@string/genre_prompt" />
 
-    <CheckBox
-        android:id="@+id/yearCheckBox"
+    <TextView
+        android:id="@+id/yearTextBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/spinner1"
@@ -42,8 +42,8 @@
         android:text="Jahr"
         android:textSize="20sp" />
 
-    <CheckBox
-        android:id="@+id/ratingCheckBox"
+    <TextView
+        android:id="@+id/ratingTextBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/yearEdit"
@@ -57,13 +57,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/ratingCheckBox" />
+        android:layout_below="@+id/ratingTextBox" />
 
     <Button
         android:id="@+id/searchButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/ratingCheckBox"
+        android:layout_alignLeft="@+id/ratingTextBox"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="40dp"
         android:text="@string/search_button" />

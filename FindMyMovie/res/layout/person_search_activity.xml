@@ -29,6 +29,7 @@
         android:layout_below="@+id/first_name"
         android:layout_centerHorizontal="true"
         android:ems="10"
+        android:inputType="textImeMultiLine"
         android:hint="z.B. Leonardo" />
 
     <EditText
@@ -37,6 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/last_name"
         android:layout_centerHorizontal="true"
+        android:inputType="textImeMultiLine"
         android:ems="10"
         android:hint="z.B. DiCaprio"
          >

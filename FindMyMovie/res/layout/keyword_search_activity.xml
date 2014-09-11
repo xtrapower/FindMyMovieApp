@@ -2,8 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="20dp" 
->
+    android:layout_margin="20dp" >
 
     <Button
         android:id="@+id/searchButton"
@@ -31,9 +30,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:ems="10"
-        android:hint="z.B. Knife" >
+        android:hint="z.B. Knife"
+        android:inputType="textImeMultiLine" />
 
-        <requestFocus />
-    </EditText>
 
 </RelativeLayout>

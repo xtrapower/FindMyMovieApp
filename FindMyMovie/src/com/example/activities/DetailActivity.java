@@ -71,10 +71,7 @@ public class DetailActivity extends Activity {
 		description.setText(mov.getDescription());
 		genre.setText(mov.getGenre());
 
-		/*
-		 * release_date.setText("rr"); rating.setText("rrr");
-		 * description.setText("rrrr"); genre.setText("rrrrr");
-		 */
+		
 		WebView web = (WebView) findViewById(R.id.webView1);
 		web.loadUrl(AppConfig.Server.URL_GET_IMAGE + mov.getImagePath());
 
@@ -87,10 +84,15 @@ public class DetailActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-
-				database.insertData(mov);
-				Toast.makeText(DetailActivity.this, "Hinzugefügt!", Toast.LENGTH_SHORT).show();
 				
+				// Hier ist der neue AlertDialog für den Hinzufügen Bug
+				if(checkDouble()) {
+					Toast.makeText(DetailActivity.this, "Film bereits in WatchList!", Toast.LENGTH_SHORT).show();
+				}
+				else {
+				database.insertData(mov);
+					Toast.makeText(DetailActivity.this, "Hinzugefügt!", Toast.LENGTH_SHORT).show();
+				}
 			}
 		});
 
@@ -101,6 +103,18 @@ public class DetailActivity extends Activity {
 		database.open();
 
 	}
+	
+	// Hier die dazugehörige Methode
+	private boolean checkDouble() {
+		boolean doubleMovie = false;
+		for(int i = 0;  i < database.getAllItems().size(); i++){
+			if(mov.getId() == database.getAllItems().get(i).getId()) {
+				doubleMovie = true;
+			}
+		}
+		return doubleMovie;
+	}
+
 
 	private void setupTV() {
 

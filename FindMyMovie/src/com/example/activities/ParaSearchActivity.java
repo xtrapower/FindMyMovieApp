@@ -22,7 +22,7 @@ public class ParaSearchActivity extends Activity {
 
 	private Button search;
 	private EditText yearEdit;
-	private CheckBox yearCheckBox, ratingCheckBox, popularCheckBox;
+	private CheckBox popularCheckBox;
 	private SeekBar ratingBar;
 	private float ratingNum;
 	private Spinner spinner1;
@@ -69,9 +69,7 @@ public class ParaSearchActivity extends Activity {
 	private void setupCB() {
 		
 		popularCheckBox = (CheckBox) findViewById(R.id.popularCheckBox);
-		ratingCheckBox = (CheckBox) findViewById(R.id.ratingCheckBox);
-		yearCheckBox = (CheckBox) findViewById(R.id.yearCheckBox);
-
+		
 	}
 
 	private void setupSpinner() {
@@ -127,18 +125,9 @@ public class ParaSearchActivity extends Activity {
 		intent.setClass(ParaSearchActivity.this, ResultActivity.class);
 		intent.putExtra("Genre", ""+myMap.get(spinner1.getSelectedItem().toString()).toString());
 		intent.putExtra("Art", "Para");
-
-		if (yearCheckBox.isChecked()) {
-			intent.putExtra("Jahr", yearEdit.getText().toString());
-		} else {
-			intent.putExtra("Jahr", "");
-		}
+		intent.putExtra("Jahr", yearEdit.getText().toString());
+		intent.putExtra("Bewertung", seekBarNum.getText().toString());
 		
-		if (ratingCheckBox.isChecked()) {
-			intent.putExtra("Bewertung", seekBarNum.getText().toString());
-		} else {
-			intent.putExtra("Bewertung", "");
-		}
 		
 		if (popularCheckBox.isChecked()) {
 			intent.putExtra("Beliebt", "10");
