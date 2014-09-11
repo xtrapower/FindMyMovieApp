@@ -78,8 +78,11 @@ public class DetailActivity extends Activity {
 	}
 
 	private void setupButton() {
-
+		
 		addButton = (Button) findViewById(R.id.button1);
+		if((boolean) getIntent().getExtras().get("WatchList")) {
+			addButton.setVisibility(View.INVISIBLE);
+		}
 		addButton.setOnClickListener(new View.OnClickListener() {
 
 			@Override

@@ -1,6 +1,8 @@
 package com.example.activities;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.concurrent.ExecutionException;
 
 import com.example.fetcher.MovieFetcher;
@@ -106,6 +108,7 @@ public class ResultActivity extends Activity {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		mov_adapter = new MovieListAdapter(this, mov_list);
 		mov_adapter.notifyDataSetChanged();
 		list.setAdapter(mov_adapter);
@@ -115,11 +118,7 @@ public class ResultActivity extends Activity {
 		//
 		
 		if (mov_list.isEmpty()) {
-			AlertDialog errorDialog = DialogHelper.getErrorDialog(this, "Fehler",
-					"Keine Filme gefunden!", true);
-
-			errorDialog.show();
-
+			showAlertDialog();
 		}
 		list.setOnItemClickListener(new OnItemClickListener() {
 
@@ -131,6 +130,14 @@ public class ResultActivity extends Activity {
 				startReceiverActivity(mov);
 			}
 		});
+	}
+
+	private void showAlertDialog() {
+		AlertDialog errorDialog = DialogHelper.getErrorDialog(this, "Fehler",
+					"Keine Filme gefunden!", true);
+
+			errorDialog.show();
+
 	}
 
 	private void startReceiverActivity(Movie mov) {

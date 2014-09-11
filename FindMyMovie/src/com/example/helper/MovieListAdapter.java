@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class MovieListAdapter extends BaseAdapter {
@@ -56,12 +57,21 @@ public class MovieListAdapter extends BaseAdapter {
 		TextView title = (TextView) convertView.findViewById(R.id.title);
 		TextView release_date = (TextView) convertView.findViewById(R.id.release);
 		TextView rating = (TextView) convertView.findViewById(R.id.rating);
-		TextView popular = (TextView) convertView.findViewById(R.id.popular);
+		ImageView popular = (ImageView) convertView.findViewById(R.id.popular);
 		
 		title.setText(mov.getTitle().replaceAll("\'", "´"));
-		release_date.setText("Jahr: "+ mov.getReleaseDate());
+		release_date.setText(mov.getReleaseDate().toString());
 		rating.setText("Bewertung: " + mov.getRating());
-		popular.setText("Beliebtheit: " + String.format("%.2f", mov.getPopularity()));
+		
+		if(mov.getPopularity()<0.15){
+			popular.setImageResource(R.drawable.red);
+		}
+		else if(mov.getPopularity()>0.15 & mov.getPopularity()<0.60){
+			popular.setImageResource(R.drawable.yellow);
+		}
+		else if(mov.getPopularity()>0.60){
+			popular.setImageResource(R.drawable.green);
+		}
 	}
 
 }
