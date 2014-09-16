@@ -64,7 +64,7 @@ public class DetailActivity extends Activity {
 	}
 
 	private void setupText() {
-
+		
 		title.setText(mov.getTitle());
 		release_date.setText(mov.getReleaseDate());
 		rating.setText("" + mov.getRating());
@@ -80,9 +80,9 @@ public class DetailActivity extends Activity {
 	private void setupButton() {
 		
 		addButton = (Button) findViewById(R.id.button1);
-		if((boolean) getIntent().getExtras().get("WatchList")) {
+		if(getIntent().getExtras().get("WatchList") != null) {
 			addButton.setVisibility(View.INVISIBLE);
-		}
+		} else {
 		addButton.setOnClickListener(new View.OnClickListener() {
 
 			@Override
@@ -97,7 +97,7 @@ public class DetailActivity extends Activity {
 					Toast.makeText(DetailActivity.this, "Hinzugefügt!", Toast.LENGTH_SHORT).show();
 				}
 			}
-		});
+		}); }
 
 	}
 

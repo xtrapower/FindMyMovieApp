@@ -69,7 +69,7 @@ public class TitleSearchActivity extends Activity {
 		Intent intent = new Intent();
 		intent.putExtra("Titel",
 				titleEdit.getText().toString().replaceAll(" ", "%20"));
-		if (yearEdit.getText().toString() == "") {
+		if (yearEdit.getText().toString() != "") {
 			intent.putExtra("Art", "Titel+Jahr");
 			intent.putExtra("Jahr", yearEdit.getText().toString());
 		} else {
