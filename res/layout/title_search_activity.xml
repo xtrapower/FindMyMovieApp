@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="20dp" 
+>
+
+    <Button
+        android:id="@+id/searchButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="@string/search_button" />
+
+    <TextView
+        android:id="@+id/title_search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/title_search"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/edit_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title_search"
+        android:layout_centerHorizontal="true"
+        android:inputType="textImeMultiLine"
+        android:ems="10"
+        android:hint="@string/titleEx" />
+
+
+    <TextView
+        android:id="@+id/textBox1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit_title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="14dp"
+        android:text="Jahr" />
+
+    <EditText
+        android:id="@+id/edit_year"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/edit_title"
+        android:layout_below="@+id/textBox1"
+        android:ems="10"
+        android:hint="z.B. 2000"
+        android:inputType="date" />
+
+</RelativeLayout>

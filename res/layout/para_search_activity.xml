@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="20dp" >
+
+    <TextView
+        android:id="@+id/genre_search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="Genre"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/yearEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/yearTextBox"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:hint="z.B. 2000"
+        android:inputType="date" />
+
+    <Spinner
+        android:id="@+id/spinner1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/genre_search"
+        android:entries="@array/genre_arrays"
+        android:prompt="@string/genre_prompt" />
+
+    <TextView
+        android:id="@+id/yearTextBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/spinner1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="Jahr"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/ratingTextBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/yearEdit"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="Bewertung"
+        android:textSize="20sp" />
+
+    <SeekBar
+        android:id="@+id/ratingBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/ratingTextBox" />
+
+    <Button
+        android:id="@+id/searchButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/ratingTextBox"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="40dp"
+        android:text="@string/search_button" />
+
+    <TextView
+        android:id="@+id/seekBarNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ratingBar"
+        android:layout_centerHorizontal="true"
+        android:text="0.0" />
+
+    <CheckBox
+        android:id="@+id/popularCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/searchButton"
+        android:layout_alignRight="@+id/searchButton"
+        android:layout_marginBottom="14dp"
+        android:text="Beliebt?"
+        android:textSize="20sp" />
+
+</RelativeLayout>

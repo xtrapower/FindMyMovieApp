@@ -1,0 +1,97 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.movieapp.StartActivity" >
+
+    <TextView
+        android:id="@+id/keywordText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/keywordSearch"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:text="Hier suchst du einen Film nach möglichen Stichwörtern"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/personText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/personSearch"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:text="Hier suchst du einen Film nach beteiligten Schauspielern"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/paraText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/paraSearch"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:text="Hier suchst du einen Film nach seinem Genre, seinem Ausstrahlungsdatum und seinem Ranking "
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/optionText"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:text="Welche Suche willst du verwenden?"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/titleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/titleSearch"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:text="Hier suchst du nach speziellen Filmen"
+        android:textSize="12sp" />
+
+    <Button
+        android:id="@+id/paraSearch"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/titleText"
+        android:layout_marginTop="20dp"
+        android:text="Filme entdecken" />
+
+    <Button
+        android:id="@+id/personSearch"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/paraText"
+        android:layout_marginTop="20dp"
+        android:text="Personensuche" />
+
+    <Button
+        android:id="@+id/keywordSearch"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/personText"
+        android:layout_marginTop="20dp"
+        android:text="Stichwortsuche" />
+
+    <Button
+        android:id="@+id/titleSearch"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/optionText"
+        android:layout_marginTop="20dp"
+        android:text="Titelsuche" />
+
+</RelativeLayout>
