@@ -5,9 +5,11 @@ import java.util.ArrayList;
 import com.example.movie.R;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -54,14 +56,33 @@ public class MovieListAdapter extends BaseAdapter {
 
 	private void setupTextView(View convertView) {
 		
+		WebView smallCover = (WebView) convertView.findViewById(R.id.cover_small);
+		smallCover.setClickable(false);
+		smallCover.setLongClickable(false);
+		smallCover.setFocusable(false);
+		smallCover.setFocusableInTouchMode(false);
+		
+		
 		TextView title = (TextView) convertView.findViewById(R.id.title);
 		TextView release_date = (TextView) convertView.findViewById(R.id.release);
 		TextView rating = (TextView) convertView.findViewById(R.id.rating);
+		
+		
+		
 		ImageView popular = (ImageView) convertView.findViewById(R.id.popular);
 		
+		
 		title.setText(mov.getTitle().replaceAll("\'", "´"));
+		title.setTextColor(Color.WHITE);
 		release_date.setText(mov.getReleaseDate().toString());
+		release_date.setTextColor(Color.WHITE);
 		rating.setText("Bewertung: " + mov.getRating());
+		rating.setTextColor(Color.WHITE);
+		
+		
+		
+		smallCover.loadUrl("https://image.tmdb.org/t/p/w92/" + mov.getImagePath());
+		System.out.println(AppConfig.Server.URL_GET_IMAGE + mov.getImagePath());
 		
 		if(mov.getPopularity()<0.15){
 			popular.setImageResource(R.drawable.red);

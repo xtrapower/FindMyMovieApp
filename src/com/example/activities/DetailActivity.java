@@ -10,6 +10,11 @@ import com.example.helper.AppConfig.Server;
 import com.example.movie.R;
 import com.example.movie.R.id;
 import com.example.movie.R.layout;
+import com.google.android.youtube.player.YouTubeBaseActivity;
+import com.google.android.youtube.player.YouTubeInitializationResult;
+import com.google.android.youtube.player.YouTubePlayer;
+import com.google.android.youtube.player.YouTubePlayer.Provider;
+import com.google.android.youtube.player.YouTubePlayerView;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -20,7 +25,11 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class DetailActivity extends Activity {
+public class DetailActivity extends YouTubeBaseActivity implements
+		YouTubePlayer.OnInitializedListener {
+
+	static private final String YOUTUBE_DEVELOPER_KEY = "AIzaSyBkSGm3-dVzW5bMo-BqG7ZgUsLmGYpGsfs";
+	static private final String VIDEO = "4SK0cUNMnMM";
 
 	private MovieDatabase database;
 	private Button addButton;
@@ -61,43 +70,54 @@ public class DetailActivity extends Activity {
 		initLocationDatabase();
 		setupButton();
 		setupText();
+		setupYoutubePlayer();
+	}
+
+	private void setupYoutubePlayer() {
+
+		YouTubePlayerView youTubeView = (YouTubePlayerView) findViewById(R.id.youtube_view);
+		youTubeView.initialize(YOUTUBE_DEVELOPER_KEY, this);
 	}
 
 	private void setupText() {
-		
+
 		title.setText(mov.getTitle());
 		release_date.setText(mov.getReleaseDate());
 		rating.setText("" + mov.getRating());
 		description.setText(mov.getDescription());
 		genre.setText(mov.getGenre());
 
-		
+		System.out.println(mov.getImagePath());
 		WebView web = (WebView) findViewById(R.id.webView1);
 		web.loadUrl(AppConfig.Server.URL_GET_IMAGE + mov.getImagePath());
+		System.out.println(AppConfig.Server.URL_GET_IMAGE + mov.getImagePath());
 
 	}
 
 	private void setupButton() {
-		
+
 		addButton = (Button) findViewById(R.id.button1);
-		if(getIntent().getExtras().get("WatchList") != null) {
+		if (getIntent().getExtras().get("WatchList") != null) {
 			addButton.setVisibility(View.INVISIBLE);
 		} else {
-		addButton.setOnClickListener(new View.OnClickListener() {
+			addButton.setOnClickListener(new View.OnClickListener() {
 
-			@Override
-			public void onClick(View v) {
-				
-				// Hier ist der neue AlertDialog für den Hinzufügen Bug
-				if(checkDouble()) {
-					Toast.makeText(DetailActivity.this, "Film bereits in WatchList!", Toast.LENGTH_SHORT).show();
+				@Override
+				public void onClick(View v) {
+
+					// Hier ist der neue AlertDialog für den Hinzufügen Bug
+					if (checkDouble()) {
+						Toast.makeText(DetailActivity.this,
+								"Film bereits in WatchList!",
+								Toast.LENGTH_SHORT).show();
+					} else {
+						database.insertData(mov);
+						Toast.makeText(DetailActivity.this, "Hinzugefügt!",
+								Toast.LENGTH_SHORT).show();
+					}
 				}
-				else {
-				database.insertData(mov);
-					Toast.makeText(DetailActivity.this, "Hinzugefügt!", Toast.LENGTH_SHORT).show();
-				}
-			}
-		}); }
+			});
+		}
 
 	}
 
@@ -106,18 +126,17 @@ public class DetailActivity extends Activity {
 		database.open();
 
 	}
-	
+
 	// Hier die dazugehörige Methode
 	private boolean checkDouble() {
 		boolean doubleMovie = false;
-		for(int i = 0;  i < database.getAllItems().size(); i++){
-			if(mov.getId() == database.getAllItems().get(i).getId()) {
+		for (int i = 0; i < database.getAllItems().size(); i++) {
+			if (mov.getId() == database.getAllItems().get(i).getId()) {
 				doubleMovie = true;
 			}
 		}
 		return doubleMovie;
 	}
-
 
 	private void setupTV() {
 
@@ -127,6 +146,22 @@ public class DetailActivity extends Activity {
 		description = (TextView) findViewById(R.id.detailDescriptionText);
 		genre = (TextView) findViewById(R.id.detailGenreText);
 
+	}
+
+	@Override
+	public void onInitializationFailure(Provider arg0,
+			YouTubeInitializationResult arg1) {
+		Toast.makeText(this, "Oh no! " , Toast.LENGTH_LONG)
+				.show();
+
+	}
+
+	@Override
+	public void onInitializationSuccess(Provider provider, YouTubePlayer player,
+			boolean arg2) {
+		
+		  player.loadVideo(VIDEO);
+		  
 	}
 
 }

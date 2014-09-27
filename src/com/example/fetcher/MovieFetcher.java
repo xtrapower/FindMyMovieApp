@@ -33,6 +33,7 @@ public class MovieFetcher extends AsyncTask<String, Float, ArrayList<Movie>> {
 		switch (params[1]) {
 		
 		case "Titel":
+			
 		String MovieJSON = processHttpRequest(AppConfig.Server.URL_GET_SEARCH
 				+ params[0] +"&"+ AppConfig.Server.API_KEY);
 		try {	
@@ -45,6 +46,7 @@ public class MovieFetcher extends AsyncTask<String, Float, ArrayList<Movie>> {
 		
 		
 		case "Titel+Jahr":
+			
 			String MovieYearJSON = processHttpRequest(AppConfig.Server.URL_GET_SEARCH
 					+ params[0] +"&"+ AppConfig.Server.API_KEY + AppConfig.Server.URL_GET_SEARCH_EXTRA + params[2]);
 			try {	

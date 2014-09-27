@@ -42,6 +42,7 @@ public final class Movie implements Parcelable {
 		this.title = json.getString("title");
 		this.rating = json.getDouble("vote_average");
 		this.popular = (float) json.getDouble("popularity");
+		this.imagePath = json.getString("poster_path");
 		
 	}
 	

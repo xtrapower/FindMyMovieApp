@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="20dp" 
+    android:background="@drawable/bg"
+     
 >
 
     <Button
@@ -11,16 +12,19 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:text="@string/search_button" />
+        android:text="@string/search_button"
+        android:background="@layout/grey_button" />
 
     <TextView
         android:id="@+id/first_name"
+        android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:text="Vorname"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:textColor="@android:color/white" />
 
     <EditText
         android:id="@+id/edit_first_name"
@@ -30,7 +34,8 @@
         android:layout_centerHorizontal="true"
         android:ems="10"
         android:inputType="textImeMultiLine"
-        android:hint="z.B. Leonardo" />
+        android:hint="z.B. Leonardo"
+        android:textColor="@android:color/white" />
 
     <EditText
         android:id="@+id/edit_last_name"
@@ -41,6 +46,7 @@
         android:inputType="textImeMultiLine"
         android:ems="10"
         android:hint="z.B. DiCaprio"
+        android:textColor="@android:color/white"
          >
 
        
@@ -54,6 +60,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="25dp"
         android:text="Nachname"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:textColor="@android:color/white" />
 
 </RelativeLayout>
