@@ -29,7 +29,6 @@ public class DetailActivity extends YouTubeBaseActivity implements
 		YouTubePlayer.OnInitializedListener {
 
 	static private final String YOUTUBE_DEVELOPER_KEY = "AIzaSyBkSGm3-dVzW5bMo-BqG7ZgUsLmGYpGsfs";
-	static private final String VIDEO = "4SK0cUNMnMM";
 
 	private MovieDatabase database;
 	private Button addButton;
@@ -151,17 +150,17 @@ public class DetailActivity extends YouTubeBaseActivity implements
 	@Override
 	public void onInitializationFailure(Provider arg0,
 			YouTubeInitializationResult arg1) {
-		Toast.makeText(this, "Oh no! " , Toast.LENGTH_LONG)
-				.show();
+		Toast.makeText(this, "Sorry, Youtube Player failed to initialize!", Toast.LENGTH_LONG).show();
 
 	}
 
 	@Override
-	public void onInitializationSuccess(Provider provider, YouTubePlayer player,
-			boolean arg2) {
-		
-		  player.loadVideo(VIDEO);
-		  
+	public void onInitializationSuccess(Provider provider,
+			YouTubePlayer player, boolean arg2) {
+
+		if (mov.getYoutubeTrailerURL() != null) {
+			player.loadVideo(mov.getYoutubeTrailerURL());
+		}
 	}
 
 }

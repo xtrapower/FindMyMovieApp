@@ -10,7 +10,7 @@ public final class Movie implements Parcelable {
 
 	private int id;
 	private String title, release_date, description, imagePath, firstGenre,
-			secondGenre;
+			secondGenre, youtube_trailer_url;
 	private double rating;
 	private float popular;
 
@@ -77,6 +77,8 @@ public final class Movie implements Parcelable {
 		}
 		this.description = json.getString("overview");
 		this.imagePath = json.getString("poster_path");
+		this.youtube_trailer_url = json.getJSONObject("trailers").getJSONArray("youtube").getJSONObject(0).getString("source");
+		
 
 	}
 
@@ -117,6 +119,11 @@ public final class Movie implements Parcelable {
 	public String getSecondGenre() {
 
 		return secondGenre;
+	}
+	
+	public String getYoutubeTrailerURL()  {
+		
+		return youtube_trailer_url;
 	}
 
 	public String getGenre() {

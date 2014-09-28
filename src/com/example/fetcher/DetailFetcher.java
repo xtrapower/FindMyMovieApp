@@ -20,13 +20,15 @@ import android.os.AsyncTask;
 
 public class DetailFetcher extends AsyncTask<Integer, Float, Movie> {
 
+	private static final String TRAILER_INFO = "&append_to_response=trailers";
 	private Movie mov;
 
 	@Override
 	protected Movie doInBackground(Integer... params) {
 
 		String JSON = processHttpRequest(AppConfig.Server.URL_GET_DETAIL
-				+ params[0] +"?"+ AppConfig.Server.API_KEY);
+				+ params[0] +"?"+ AppConfig.Server.API_KEY + TRAILER_INFO);
+		
 		try {
 			mov = readJSON(JSON);
 		} catch (JSONException e) {
