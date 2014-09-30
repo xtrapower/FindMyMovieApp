@@ -44,7 +44,7 @@
         android:layout_below="@+id/edit_title"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="14dp"
-        android:text="Jahr"
+        android:text="@string/year"
         android:textColor="@android:color/white" />
 
     <EditText
@@ -54,7 +54,7 @@
         android:layout_alignLeft="@+id/edit_title"
         android:layout_below="@+id/textBox1"
         android:ems="10"
-        android:hint="z.B. 2000"
+        android:hint="@string/year_example"
         android:inputType="date"
         android:textColor="@android:color/white" />
 

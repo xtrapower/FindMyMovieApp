@@ -40,10 +40,13 @@ public class MovieDatabase {
 				mov.getTitle().replaceAll("\'", "´"));
 		newMovie.put(AppConfig.Data.RATING_KEY, mov.getRating());
 		newMovie.put(AppConfig.Data.POPULAR_KEY, mov.getPopularity());
+		// ---------------------------------- Cover ----------------------------------
+		newMovie.put(AppConfig.Data.COVER_KEY, mov.getImagePath());
+		System.out.println("ImagePath MovieDatabase:  " + mov.getImagePath());
 
 		Cursor cursor = db.query(AppConfig.Data.TABLE_KEY, null,
 				AppConfig.Data.ID_KEY + "=?",
-				new String[] { mov.getId() + "" }, null, null, null);
+				new String[] { mov.getId() + "" }, null, null, null, null);
 		if (cursor.getCount() > 0) {
 			db.update(AppConfig.Data.TABLE_KEY, newMovie, AppConfig.Data.ID_KEY
 					+ "=?", new String[] { mov.getId() + "" });
@@ -71,7 +74,8 @@ public class MovieDatabase {
 		Cursor cursor = db.query(AppConfig.Data.TABLE_KEY, new String[] {
 				AppConfig.Data.ID_KEY, AppConfig.Data.RELEASE_KEY,
 				AppConfig.Data.TITLE_KEY, AppConfig.Data.RATING_KEY,
-				AppConfig.Data.POPULAR_KEY }, null, null, null, null, null);
+				// ---------------------------------- Cover ----------------------------------
+				AppConfig.Data.POPULAR_KEY, AppConfig.Data.COVER_KEY }, null, null, null, null, null, null);
 		if (cursor.moveToFirst()) {
 			do {
 				int id = cursor.getInt(0);
@@ -79,8 +83,10 @@ public class MovieDatabase {
 				String title = cursor.getString(2);
 				double rating = cursor.getDouble(3);
 				float popular = cursor.getFloat(4);
+				// ---------------------------------- Cover ----------------------------------
+				String cover = cursor.getString(5);
 
-				items.add(new Movie(id, release_date, title, rating, popular));
+				items.add(new Movie(id, release_date, title, rating, popular, cover));
 			} while (cursor.moveToNext());
 		}
 		return items;
@@ -94,7 +100,9 @@ public class MovieDatabase {
 				+ AppConfig.Data.RELEASE_KEY + " text not null, "
 				+ AppConfig.Data.TITLE_KEY + " text not null, "
 				+ AppConfig.Data.RATING_KEY + " real not null, "
-				+ AppConfig.Data.POPULAR_KEY + " real not null )";
+				+ AppConfig.Data.POPULAR_KEY + " real not null, "
+				// ---------------------------------- Cover ----------------------------------
+				+ AppConfig.Data.COVER_KEY + " text not null )";
 
 		public LocationDatabaseHelper(Context context, String name,
 				CursorFactory factory, int version) {

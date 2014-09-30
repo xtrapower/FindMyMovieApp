@@ -21,7 +21,7 @@
             android:layout_below="@+id/keywordSearch"
             android:layout_centerHorizontal="true"
             android:gravity="center"
-            android:text="Hier suchst du einen Film nach möglichen Stichwörtern"
+            android:text="@string/keyword_search"
             android:textColor="@android:color/white"
             android:textSize="12sp" />
 
@@ -32,7 +32,7 @@
             android:layout_below="@+id/personSearch"
             android:layout_centerHorizontal="true"
             android:gravity="center"
-            android:text="Hier suchst du einen Film nach beteiligten Schauspielern"
+            android:text="@string/person_search"
             android:textColor="@android:color/white"
             android:textSize="12sp" />
 
@@ -43,7 +43,7 @@
             android:layout_below="@+id/paraSearch"
             android:layout_centerHorizontal="true"
             android:gravity="center"
-            android:text="Hier suchst du einen Film nach seinem Genre, seinem Ausstrahlungsdatum und seinem Ranking "
+            android:text="@string/discover_search"
             android:textColor="@android:color/white"
             android:textSize="12sp" />
 
@@ -54,7 +54,7 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:gravity="center"
-            android:text="Welche Suche willst du verwenden?"
+            android:text="@string/choose_search"
             android:textColor="@android:color/white"
             android:textSize="20sp" />
 
@@ -65,7 +65,7 @@
             android:layout_below="@+id/titleSearch"
             android:layout_centerHorizontal="true"
             android:gravity="center"
-            android:text="Hier suchst du nach speziellen Filmen"
+            android:text="@string/title_search_text"
             android:textColor="@android:color/white"
             android:textSize="12sp" />
 
@@ -76,7 +76,7 @@
             android:layout_alignParentLeft="true"
             android:layout_below="@+id/titleText"
             android:layout_marginTop="20dp"
-            android:text="Filme entdecken"
+            android:text="@string/button_discover"
             android:background="@layout/grey_button" />
 
         <Button
@@ -86,7 +86,7 @@
             android:layout_alignParentLeft="true"
             android:layout_below="@+id/paraText"
             android:layout_marginTop="20dp"
-            android:text="Personensuche"
+            android:text="@string/button_filmographie"
             android:background="@layout/grey_button" />
 
         <Button
@@ -96,7 +96,7 @@
             android:layout_alignParentLeft="true"
             android:layout_below="@+id/personText"
             android:layout_marginTop="20dp"
-            android:text="Stichwortsuche"
+            android:text="@string/button_keywords"
             android:background="@layout/grey_button" />
 
         <Button
@@ -105,8 +105,9 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_below="@+id/optionText"
+            android:textSize="20sp"
             android:layout_marginTop="20dp"
-            android:text="Titelsuche"
+            android:text="@string/title_search"
             android:background="@layout/grey_button" />
     </RelativeLayout>
 

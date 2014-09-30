@@ -15,12 +15,14 @@ public final class Movie implements Parcelable {
 	private float popular;
 
 	public Movie(int id, String release_date, String title, double rating,
-			float popular) {
+			float popular, String imagePath) {
 		this.id = id;
 		this.release_date = release_date;
 		this.title = title;
 		this.rating = rating;
 		this.popular = popular;
+		this.imagePath = imagePath;
+		
 	}
 
 	public Movie(int id, String title, double rating, String firstGenre,

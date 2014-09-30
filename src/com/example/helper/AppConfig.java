@@ -30,6 +30,7 @@ public class AppConfig {
 		public static final String RELEASE_KEY = "release_date";
 		public static final String RATING_KEY = "rating";
 		public static final String POPULAR_KEY = "popular";
+		public static final String COVER_KEY = "imagePath";
 		
 	}
 

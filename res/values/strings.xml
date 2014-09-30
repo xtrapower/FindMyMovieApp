@@ -5,22 +5,41 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title">FindMyMovie</string>
-    <string name="below_title">Die Filmsuche App</string>
-    <string name="search_button">Film suchen</string>
+    <string name="below_title">The movie search App</string>
+    <string name="search_button">Search movie</string>
     <string name="watchlist_button">WatchList</string>
-    <string name="title_search">Titel</string>
+    <string name="title_search">Title</string>
     <string name="genre_search">Genre</string>
-    <string name="rating_search">Bewertung</string>
-    <string name="search">Suche</string>
-    <string name="titleEx">z.B. Titanic</string>
-    <string name="genreEx">z.B. Komödie</string>
+    <string name="rating_search">Rating</string>
+    <string name="search">Search</string>
+    <string name="titleEx">e.g. Titanic</string>
+    <string name="genreEx">e.g. Comedy</string>
     <string name="add_button">Add to WatchList</string>
     <string name="detailGenre">Genre:</string>
-    <string name="detailYear">Jahr:</string>
-    <string name="detailRating">Bewertung:</string>
-    <string name="detailDescription">Beschreibung:</string>
+    <string name="detailYear">Year:</string>
+    <string name="detailRating">Rating:</string>
+     <string name="minRating">minimal Rating:</string>
+    <string name="detailDescription">Description:</string>
+    <string name="button_discover">Discover new Movies</string>
+    <string name="button_filmographie">Search for an Actor</string>
+    <string name="button_keywords">Keyword</string>
     <string name="genre_prompt">Choose a genre</string>
+    <string name="keyword_search">Search for keywords!</string>
+    <string name="person_search">Get the filmographie of an Actor!</string>
+    <string name="discover_search">Search for genre, rating and release date!</string>
+    <string name="title_search_text">Search for a specific title!</string>
+    <string name="choose_search">How do u want to search?</string>
+    <string name="year">Year</string>
+    <string name="rating_zero">0.0</string>
+    <string name="year_example">e.g. 2010</string>
+    <string name="popular">Only search for popular Movies?</string>
 
+    <string name="prename">First name</string>
+    <string name="prename_example">e.g. Leonardo</string>
+    <string name="lastname">Last name</string>
+    <string name="lastname_example">e.g. DiCaprio</string>
+    <string name="keyword_example">e.g. Moon</string>
+    
     <string-array name="genre_arrays">
         <item>Action</item>
         <item>Adventure</item>

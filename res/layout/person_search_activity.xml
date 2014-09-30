@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:text="Vorname"
+        android:text="@string/prename"
         android:textSize="20sp"
         android:textColor="@android:color/white" />
 
@@ -34,7 +34,7 @@
         android:layout_centerHorizontal="true"
         android:ems="10"
         android:inputType="textImeMultiLine"
-        android:hint="z.B. Leonardo"
+        android:hint="@string/prename_example"
         android:textColor="@android:color/white" />
 
     <EditText
@@ -45,7 +45,7 @@
         android:layout_centerHorizontal="true"
         android:inputType="textImeMultiLine"
         android:ems="10"
-        android:hint="z.B. DiCaprio"
+        android:hint="@string/lastname_example"
         android:textColor="@android:color/white"
          >
 
@@ -59,7 +59,7 @@
         android:layout_below="@+id/edit_first_name"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="25dp"
-        android:text="Nachname"
+        android:text="@string/lastname"
         android:textSize="20sp"
         android:textColor="@android:color/white" />
 
