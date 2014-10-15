@@ -29,6 +29,47 @@ public class MovieFetcher extends AsyncTask<String, Float, ArrayList<Movie>> {
 		movs = new ArrayList<Movie>();
 
 		switch (params[1]) {
+		
+		// Popular Feature
+		
+		case "Popular":
+			
+			
+			String PopularMoviesJSON = processHttpRequest("https://api.themoviedb.org/3/movie/popular?api_key=f4abf758a9edc14dedcad5f120ea63ab");
+			try {
+				readMovieJSON(PopularMoviesJSON);
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return movs;
+			
+		
+		case "Latest":
+				
+				
+				String LatestMoviesJSON = processHttpRequest("https://api.themoviedb.org/3/movie/now_playing?api_key=f4abf758a9edc14dedcad5f120ea63ab");
+				try {
+					readMovieJSON(LatestMoviesJSON);
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				return movs;
+				
+				
+		case "Upcoming":
+			
+			
+			String UpcomingMoviesJSON = processHttpRequest("https://api.themoviedb.org/3/movie/upcoming?api_key=f4abf758a9edc14dedcad5f120ea63ab");
+			try {
+				readMovieJSON(UpcomingMoviesJSON);
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return movs;
+			
 
 		case "Titel":
 

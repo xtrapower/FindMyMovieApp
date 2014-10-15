@@ -52,6 +52,7 @@ public final class Movie implements Parcelable {
 		this.title = json.getString("title");
 		this.rating = 0.0;
 		this.popular = (float) 0.0f;
+		this.imagePath = json.getString("poster_path");
 	}
 
 	public Movie(JSONObject json, int i) throws JSONException {

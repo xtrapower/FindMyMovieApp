@@ -54,6 +54,18 @@ public class ResultActivity extends Activity {
 
 		switch (art) {
 
+		case "Popular":
+			mFetcher.execute("Popular", art);
+			break;
+			
+		case "Latest":
+			mFetcher.execute("Latest", art);
+			break;
+			
+		case "Upcoming":
+			mFetcher.execute("Upcoming", art);
+			break;
+		
 		case "Titel":
 			String title = getIntent().getStringExtra("Titel");
 			mFetcher.execute(title, art);

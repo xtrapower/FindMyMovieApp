@@ -15,6 +15,56 @@
         tools:context="com.example.movieapp.StartActivity" >
 
         <TextView
+            android:id="@+id/explanationText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="14dp"
+            android:gravity="center"
+            android:text="@string/explanation_text"
+            android:textColor="@android:color/white"
+            android:textSize="22sp" />
+
+        <LinearLayout
+            android:id="@+id/tributton"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/explanationText"
+            android:layout_marginTop="28dp"
+            android:baselineAligned="false"
+            android:orientation="horizontal"
+            android:weightSum="9" >
+
+            <Button
+                android:id="@+id/PopularSearch"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:background="@layout/grey_tri_button_left"
+                android:text="Popular"
+                 />
+
+            <Button
+                android:id="@+id/NowPlayingSearch"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:background="@layout/grey_tri_button_middle"
+                android:text="Latest"
+                 />
+
+            <Button
+                android:id="@+id/UpcomingSearch"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:background="@layout/grey_tri_button_right"
+                android:text="Upcoming"
+                 />
+        </LinearLayout>
+
+        <TextView
             android:id="@+id/keywordText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -46,17 +96,6 @@
             android:text="@string/discover_search"
             android:textColor="@android:color/white"
             android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/optionText"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:gravity="center"
-            android:text="@string/choose_search"
-            android:textColor="@android:color/white"
-            android:textSize="22sp" />
 
         <TextView
             android:id="@+id/titleText"
@@ -102,14 +141,26 @@
             android:background="@layout/grey_button"
             android:text="@string/button_keywords" />
 
+        <TextView
+            android:id="@+id/optionText"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/titleSearch"
+            android:layout_below="@+id/tributton"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:text="@string/choose_search"
+            android:textColor="@android:color/white"
+            android:textSize="22sp" />
+
         <Button
             android:id="@+id/titleSearch"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
+            android:layout_alignLeft="@+id/discoverSearch"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/optionText"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="36dp"
             android:background="@layout/grey_button"
             android:text="@string/title_search" />
     </RelativeLayout>

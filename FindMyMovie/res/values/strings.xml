@@ -14,7 +14,7 @@
     <string name="search">Search</string>
     <string name="titleEx">e.g. Titanic</string>
     <string name="genreEx">e.g. Comedy</string>
-    <string name="add_button">Add to your WatchList</string>
+    <string name="add_button">Add to Watchlist</string>
     <string name="detailGenre">Genre:</string>
     <string name="detailYear">Year:</string>
     <string name="detailRating">Rating:</string>
@@ -28,13 +28,14 @@
     <string name="person_search">Get the filmographie of an actor!</string>
     <string name="discover_search">Search for genre, rating and release date!</string>
     <string name="title_search_text">Search for a specific title!</string>
-    <string name="choose_search">How do u want to search?</string>
+    <string name="choose_search">...or browse the database:</string>
+    <string name="explanation_text">Check out brand new movies...</string>
     <string name="year">Year</string>
     <string name="rating_zero">0.0</string>
     <string name="year_example">e.g. 2010</string>
     <string name="popular">Only search for popular Movies?</string>
     <string name="help_text">Thanks for using this App. It is the easiest way for finding movies and watching trailers of actual blockbusters or unforgotten classics. Simple choose a search method, fill in your values and search. The Result will contain all movies, which fit your settings.
-        The traffic light will show you the popularity of the movies. You can get detail information by clicking on the desired movie. To add a movie to your Watchlist, just press the button in the detail view. To delete movies of your database, just go to the Watchlist section, click on it and hold it for a few moments.
+        The arrow at the very right will show you the popularity of the movies. You can get detail information by clicking on the desired movie. To add a movie to your Watchlist, just press the button in the detail view. To delete movies of your database, just go to the Watchlist section, click on it and hold it for a few moments.
          No guarantee for the correctness of the displayed data. All data belongs to https://www.themoviedb.org</string>
     <string name="attention">Attention</string>
     <string name="instruction">Please enable your internet connection to get the whole range of functions. If you use this app for the first time, also check the help section for detailed information!</string>

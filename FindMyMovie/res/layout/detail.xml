@@ -137,14 +137,14 @@
             android:id="@+id/button1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/detailGenreText"
-            android:layout_marginLeft="10dp"
+            android:layout_alignTop="@+id/detailGenreText"
             android:layout_marginStart="10dp"
             android:layout_toEndOf="@+id/detailGenreText"
             android:layout_toRightOf="@+id/detailGenreText"
             android:background="@layout/grey_button"
             android:text="@string/add_button"
             android:textSize="16sp" />
+
     </RelativeLayout>
 
 </ScrollView>

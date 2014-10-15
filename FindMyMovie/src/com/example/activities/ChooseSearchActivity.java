@@ -1,5 +1,7 @@
 package com.example.activities;
 
+import java.util.concurrent.ExecutionException;
+
 import com.example.movie.R;
 
 import android.app.Activity;
@@ -10,7 +12,7 @@ import android.widget.Button;
 
 public class ChooseSearchActivity extends Activity {
 
-	private Button titleSearchButton, discoverButton, personSearchButton, keywordSearchButton;
+	private Button PopularSearchButton, LatestSearchButton, UpcomingSearchButton, titleSearchButton, discoverButton, personSearchButton, keywordSearchButton;
 	private Intent intent;
 
 	@Override
@@ -32,6 +34,54 @@ public class ChooseSearchActivity extends Activity {
 	}
 
 	private void setupButton() {
+		
+		PopularSearchButton = (Button) findViewById(R.id.PopularSearch);
+		PopularSearchButton.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				
+				Intent intent = new Intent();
+				intent.putExtra("Popular", "Popular");
+				intent.putExtra("Art", "Popular");
+				intent.setClass(ChooseSearchActivity.this, ResultActivity.class);
+				startActivity(intent);
+				
+			}
+		});
+		
+		
+		LatestSearchButton = (Button) findViewById(R.id.NowPlayingSearch);
+		LatestSearchButton.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				
+				Intent intent = new Intent();
+				intent.putExtra("Latest", "Latest");
+				intent.putExtra("Art", "Latest");
+				intent.setClass(ChooseSearchActivity.this, ResultActivity.class);
+				startActivity(intent);
+				
+			}
+		});
+		
+		
+		UpcomingSearchButton = (Button) findViewById(R.id.UpcomingSearch);
+		UpcomingSearchButton.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				
+				Intent intent = new Intent();
+				intent.putExtra("Upcoming", "Upcoming");
+				intent.putExtra("Art", "Upcoming");
+				intent.setClass(ChooseSearchActivity.this, ResultActivity.class);
+				startActivity(intent);
+				
+			}
+		});
+		
 
 		titleSearchButton = (Button) findViewById(R.id.titleSearch);
 		titleSearchButton.setOnClickListener(new View.OnClickListener() {

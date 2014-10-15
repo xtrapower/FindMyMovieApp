@@ -79,7 +79,7 @@ public class MovieListAdapter extends BaseAdapter {
 		title.setTextColor(Color.WHITE);
 		release_date.setText(mov.getReleaseDate());
 		release_date.setTextColor(Color.WHITE);
-		rating.setText("Bewertung: " + mov.getRating());
+		rating.setText(" " + mov.getRating());
 		rating.setTextColor(Color.WHITE);
 		
 		smallCover.loadUrl("https://image.tmdb.org/t/p/w92" + mov.getImagePath());
