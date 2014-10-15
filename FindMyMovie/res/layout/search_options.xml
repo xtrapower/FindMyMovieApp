@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/bg" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        tools:context="com.example.movieapp.StartActivity" >
+
+        <TextView
+            android:id="@+id/keywordText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/keywordSearch"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="@string/keyword_search"
+            android:textColor="@android:color/white"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/personText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/personSearch"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="@string/person_search"
+            android:textColor="@android:color/white"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/discoverText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/discoverSearch"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="@string/discover_search"
+            android:textColor="@android:color/white"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/optionText"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="@string/choose_search"
+            android:textColor="@android:color/white"
+            android:textSize="22sp" />
+
+        <TextView
+            android:id="@+id/titleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/titleSearch"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="@string/title_search_text"
+            android:textColor="@android:color/white"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/discoverSearch"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/titleText"
+            android:layout_marginTop="20dp"
+            android:background="@layout/grey_button"
+            android:text="@string/button_discover" />
+
+        <Button
+            android:id="@+id/personSearch"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/discoverText"
+            android:layout_marginTop="20dp"
+            android:background="@layout/grey_button"
+            android:text="@string/button_filmographie" />
+
+        <Button
+            android:id="@+id/keywordSearch"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/personText"
+            android:layout_marginTop="20dp"
+            android:background="@layout/grey_button"
+            android:text="@string/button_keywords" />
+
+        <Button
+            android:id="@+id/titleSearch"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/optionText"
+            android:layout_marginTop="20dp"
+            android:background="@layout/grey_button"
+            android:text="@string/title_search" />
+    </RelativeLayout>
+
+</ScrollView>
