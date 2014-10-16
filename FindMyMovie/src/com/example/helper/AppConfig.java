@@ -5,6 +5,7 @@ public class AppConfig {
 	public class Server {
 		public static final String URL_GET_DETAIL = "https://api.themoviedb.org/3/movie/";
 		public static final String URL_GET_SEARCH = "https://api.themoviedb.org/3/search/movie?query=";
+		public static final String URL_GET_STATIC_SEARCH = "https://api.themoviedb.org/3/movie/";
 		public static final String URL_GET_KEYWORD_ID = "https://api.themoviedb.org/3/search/keyword?query=";
 		public static final String URL_GET_KEYWORD_SEARCH = "https://api.themoviedb.org/3/keyword/";
 		public static final String URL_GET_PERSON_ID = "https://api.themoviedb.org/3/search/person?query=";

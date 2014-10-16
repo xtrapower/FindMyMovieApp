@@ -35,7 +35,7 @@ public class MovieFetcher extends AsyncTask<String, Float, ArrayList<Movie>> {
 		case "Popular":
 			
 			
-			String PopularMoviesJSON = processHttpRequest("https://api.themoviedb.org/3/movie/popular?api_key=f4abf758a9edc14dedcad5f120ea63ab");
+			String PopularMoviesJSON = processHttpRequest(AppConfig.Server.URL_GET_STATIC_SEARCH + "popular" + "?" + AppConfig.Server.API_KEY);
 			try {
 				readMovieJSON(PopularMoviesJSON);
 			} catch (JSONException e) {
@@ -48,7 +48,7 @@ public class MovieFetcher extends AsyncTask<String, Float, ArrayList<Movie>> {
 		case "Latest":
 				
 				
-				String LatestMoviesJSON = processHttpRequest("https://api.themoviedb.org/3/movie/now_playing?api_key=f4abf758a9edc14dedcad5f120ea63ab");
+				String LatestMoviesJSON = processHttpRequest(AppConfig.Server.URL_GET_STATIC_SEARCH + "now_playing" + "?" + AppConfig.Server.API_KEY);
 				try {
 					readMovieJSON(LatestMoviesJSON);
 				} catch (JSONException e) {
@@ -61,7 +61,7 @@ public class MovieFetcher extends AsyncTask<String, Float, ArrayList<Movie>> {
 		case "Upcoming":
 			
 			
-			String UpcomingMoviesJSON = processHttpRequest("https://api.themoviedb.org/3/movie/upcoming?api_key=f4abf758a9edc14dedcad5f120ea63ab");
+			String UpcomingMoviesJSON = processHttpRequest(AppConfig.Server.URL_GET_STATIC_SEARCH + "upcoming" + "?" + AppConfig.Server.API_KEY);
 			try {
 				readMovieJSON(UpcomingMoviesJSON);
 			} catch (JSONException e) {
